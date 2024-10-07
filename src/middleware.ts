@@ -36,7 +36,7 @@ import { NextResponse } from "next/server"
 const isProtectedRoute = createRouteMatcher(["/group(.*)"])
 
 export default clerkMiddleware(async (auth, req) => {
-  const baseHost = "localhost:3000" // You might want to adjust this for different environments (dev/staging/production)
+  const baseHost = `${process.env.DOMAIN}` // You might want to adjust this for different environments (dev/staging/production)
   const host = req.headers.get("host") as string
   const reqPath = req.nextUrl.pathname
   const origin = req.nextUrl.origin
