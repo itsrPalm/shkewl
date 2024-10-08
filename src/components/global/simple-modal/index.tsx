@@ -32,6 +32,10 @@ export const SimpleModal = ({
         <Dialog>
           <DialogTrigger asChild>{trigger}</DialogTrigger>
           <DialogContent className="bg-themeBlack border-themeDarkGray">
+            <DialogHeader>
+              <DialogTitle>{title}</DialogTitle>
+              <DialogDescription>{description}</DialogDescription>
+            </DialogHeader>
             <div className="flex justify-center gap-3 ">
               <div className="w-12 h-12 relative">
                 <Image
@@ -52,12 +56,6 @@ export const SimpleModal = ({
                 />
               </div>
             </div>
-            <DialogHeader className="flex items-center">
-              <DialogTitle className="text-xl">{title}</DialogTitle>
-              <DialogDescription className=" text-center">
-                {description}
-              </DialogDescription>
-            </DialogHeader>
             {children}
           </DialogContent>
         </Dialog>

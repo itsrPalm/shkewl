@@ -28,8 +28,11 @@ const tiptapImage = TiptapImage.extend({
   },
 });
 
-// You can overwrite the placeholder with your own configuration
-const placeholder = Placeholder;
+// Configure the placeholder without HTMLAttributes
+const customPlaceholder = Placeholder.configure({
+  placeholder: "Type something...", // Set your placeholder text here
+});
+
 const tiptapLink = TiptapLink.configure({
   HTMLAttributes: {
     class: cx(
@@ -98,8 +101,8 @@ const starterKit = StarterKit.configure({
 
 export const defaultExtensions = [
   starterKit,
-  placeholder,
-  TiptapLink,
+  customPlaceholder,
+  tiptapLink,
   tiptapImage,
   UpdatedImage,
   taskList,

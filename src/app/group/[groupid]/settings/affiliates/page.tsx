@@ -17,7 +17,7 @@ const Affiliate = async ({ params }: Props) => {
         </CardDescription>
         <div className="mt-8 flex flex-col gap-y-2">
           <div className="bg-black border-themeGray p-3 rounded-lg flex gap-x-5 items-center">
-            http://localhost:3000/affiliates/
+            {`${process.env.DOMAIN_URL}/affiliates/`}
             {affiliate.affiliate?.id}
             <CopyButton
               content={`${process.env.DOMAIN_URL}/affiliates/${affiliate.affiliate?.id}`}
