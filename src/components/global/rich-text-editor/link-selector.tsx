@@ -85,7 +85,7 @@ export const LinkSelector = ({ open, onOpenChange }: LinkSelectorProps) => {
               }
             }
           }}
-          className="flex  p-1 "
+          className="flex p-1 "
         >
           <input
             ref={inputRef}

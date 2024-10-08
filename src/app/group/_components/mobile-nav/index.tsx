@@ -1,4 +1,5 @@
-import Notification from "@/components/global/user-widget/notification";
+// import Notification from "@/components/global/user-widget/notification";
+import { Notification } from "@/components/global/user-widget/notification";
 import { UserAvatar } from "@/components/global/user-widget/user";
 import { Home, Message } from "@/icons";
 import { currentUser } from "@clerk/nextjs/server";
