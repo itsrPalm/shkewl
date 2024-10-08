@@ -1,9 +1,14 @@
 "use client";
 
 import { Bell } from "@/icons";
+import type { FC, ReactNode } from "react";
 import GlassSheet from "../glass-sheet";
 
-export const Notification = () => {
+interface NotificationProps {
+  children: ReactNode; // Define children prop
+}
+
+const Notification: FC<NotificationProps> = ({ children }) => {
   return (
     <GlassSheet
       trigger={
@@ -12,7 +17,7 @@ export const Notification = () => {
         </span>
       }
     >
-      <div>yo</div>
+      {children}
     </GlassSheet>
   );
 };

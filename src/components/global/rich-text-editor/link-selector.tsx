@@ -6,6 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ENVIRONMENT } from "@/constants/forms";
 import { cn } from "@/lib/utils";
 
 import { Check, Trash } from "lucide-react";
@@ -26,7 +27,7 @@ export function getUrlFromString(str: string) {
     if (str.includes(".") && !str.includes(" ")) {
       //   return new URL(`http${ENVIRONMENT}://${str}`).toString();
 
-      return new URL(`https://${str}`).toString();
+      return new URL(`http${ENVIRONMENT}://${str}`).toString();
     }
   } catch (e) {
     return null;
