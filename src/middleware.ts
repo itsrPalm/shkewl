@@ -21,7 +21,10 @@ export default clerkMiddleware(async (auth, req) => {
     console.log("DATA[MIDDLEWARE]: ", data.clone);
     if (data.status === 200 && data) {
       return NextResponse.rewrite(
-        new URL(reqPath, `https://${data.domain}/${reqPath}`),
+        new URL(
+          reqPath,
+          `http${process.env.NODE_ENV == "production" ? "s" : ""}://${data.domain}/${reqPath}`,
+        ),
       );
     }
   }
