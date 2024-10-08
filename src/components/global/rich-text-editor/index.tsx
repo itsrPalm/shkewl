@@ -63,7 +63,7 @@ const BlockTextEditor = ({
   );
 
   return (
-    <div>
+    <div className="z-50">
       {" "}
       {htmlContent && !onEdit && inline ? (
         <HtmlParser html={htmlContent} />

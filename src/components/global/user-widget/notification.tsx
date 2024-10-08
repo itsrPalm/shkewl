@@ -12,7 +12,8 @@ export const Notification = () => {
         </span>
       }
     >
-      <div>yo</div>
+      {/* <div>yo</div> */}
+      NOTIFICATIONS LIVE HERE
     </GlassSheet>
   );
 };
