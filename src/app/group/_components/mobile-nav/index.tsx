@@ -1,4 +1,4 @@
-import { Notification } from "@/components/global/user-widget/notification";
+import Notification from "@/components/global/user-widget/notification";
 import { UserAvatar } from "@/components/global/user-widget/user";
 import { Home, Message } from "@/icons";
 import { currentUser } from "@clerk/nextjs/server";
@@ -16,6 +16,7 @@ const MobileNav = async ({ groupid }: Props) => {
       <Link href={`/group/${groupid}`}>
         <Home className="h-7 w-7" />
       </Link>
+      {/* <Notification notificationMessage={notificationMessage} /> */}
       <Notification />
       <Link href={`/group/${groupid}/messages`}>
         <Message className="h-7 w-7" />
