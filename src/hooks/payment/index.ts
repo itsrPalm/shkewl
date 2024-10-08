@@ -264,7 +264,8 @@ export const useStripeConnect = (groupid: string) => {
     try {
       setOnStripeAccountPending(true);
       const account = await axios.get(
-        `http://localhost:3000/api/stripe/connect?groupid=${groupid}`,
+        // `http://localhost:3000/api/stripe/connect?groupid=${groupid}`,
+        `${process.env.DOMAIN_URL}/api/stripe/connect?groupid=${groupid}`,
       );
       console.log("THE STRIPE ACCOUNT[ONSTRIPECONNECT]: ", { ...account });
 
