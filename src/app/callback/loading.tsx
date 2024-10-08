@@ -21,7 +21,7 @@ const DiscoverLoading = () => {
         <span className="sr-only">Loading...</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DiscoverLoading
+export default DiscoverLoading;

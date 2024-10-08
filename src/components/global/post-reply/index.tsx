@@ -1,17 +1,17 @@
-"use client"
-import { UserComment } from "@/app/group/[groupid]/channel/[channelid]/[postid]/_components/comments/user-comment"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { usePostReply } from "@/hooks/channels"
+"use client";
+import { UserComment } from "@/app/group/[groupid]/channel/[channelid]/[postid]/_components/comments/user-comment";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { usePostReply } from "@/hooks/channels";
 
-import { Send } from "lucide-react"
+import { Send } from "lucide-react";
 
 type PostReplyProps = {
-  commentid: string
-  postid: string
-  username: string
-  image: string
-}
+  commentid: string;
+  postid: string;
+  username: string;
+  image: string;
+};
 
 export const PostReply = ({
   commentid,
@@ -22,7 +22,7 @@ export const PostReply = ({
   const { register, onCreateReply, variables, isPending } = usePostReply(
     commentid,
     postid,
-  )
+  );
   return (
     <div className="flex flex-col gap-y-5 w-full">
       {isPending && variables && (
@@ -49,5 +49,5 @@ export const PostReply = ({
         </Button>
       </form>
     </div>
-  )
-}
+  );
+};

@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { Loader } from "@/components/global/loader"
-import { Button } from "@/components/ui/button"
-import { useJoinGroup } from "@/hooks/payment"
+import { Loader } from "@/components/global/loader";
+import { Button } from "@/components/ui/button";
+import { useJoinGroup } from "@/hooks/payment";
 
-import { CardElement } from "@stripe/react-stripe-js"
+import { CardElement } from "@stripe/react-stripe-js";
 
 type JoinGroupPaymentFormProps = {
-  groupid: string
-}
+  groupid: string;
+};
 
 export const JoinGroupPaymentForm = ({
   groupid,
 }: JoinGroupPaymentFormProps) => {
-  const { isPending, onPayToJoin } = useJoinGroup(groupid)
+  const { isPending, onPayToJoin } = useJoinGroup(groupid);
   return (
     <div className="flex flex-col gap-y-3">
       <CardElement
@@ -34,5 +34,5 @@ export const JoinGroupPaymentForm = ({
         <Loader loading={isPending}>Pay Now</Loader>
       </Button>
     </div>
-  )
-}
+  );
+};

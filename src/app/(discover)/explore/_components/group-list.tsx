@@ -1,15 +1,15 @@
-import InfiniteScrollObserver from "@/components/global/infinite-scroll"
-import { NoResult } from "@/components/global/search/no-results"
-import { useGroupList } from "@/hooks/groups"
-import GroupCard from "./group-card"
-import PaginatedGroups from "./paginated-groups"
+import InfiniteScrollObserver from "@/components/global/infinite-scroll";
+import { NoResult } from "@/components/global/search/no-results";
+import { useGroupList } from "@/hooks/groups";
+import GroupCard from "./group-card";
+import PaginatedGroups from "./paginated-groups";
 
 type Props = {
-  category: string
-}
+  category: string;
+};
 
 const GroupList = ({ category }: Props) => {
-  const { groups, status } = useGroupList("groups")
+  const { groups, status } = useGroupList("groups");
 
   return (
     <div className="container grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-6 mt-16">
@@ -28,7 +28,7 @@ const GroupList = ({ category }: Props) => {
         </InfiniteScrollObserver>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default GroupList
+export default GroupList;

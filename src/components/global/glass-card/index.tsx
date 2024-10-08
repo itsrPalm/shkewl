@@ -1,10 +1,10 @@
-import { Card } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 type Props = {
-  children: React.ReactNode
-  className?: string
-}
+  children: React.ReactNode;
+  className?: string;
+};
 
 const GlassCard = ({ children, className }: Props) => {
   return (
@@ -16,7 +16,7 @@ const GlassCard = ({ children, className }: Props) => {
     >
       {children}
     </Card>
-  )
-}
+  );
+};
 
-export default GlassCard
+export default GlassCard;

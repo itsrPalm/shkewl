@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 type Props = {
-  children: React.ReactNode
-  className?: string
-  container?: string
-}
+  children: React.ReactNode;
+  className?: string;
+  container?: string;
+};
 
 const BackdropGradient = ({ children, className, container }: Props) => {
   return (
@@ -14,7 +14,7 @@ const BackdropGradient = ({ children, className, container }: Props) => {
       />
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default BackdropGradient
+export default BackdropGradient;

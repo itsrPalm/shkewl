@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { PostContent } from "@/components/global/post-content"
-import { SimpleModal } from "@/components/global/simple-modal"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Card, CardContent, CardDescription } from "@/components/ui/card"
-import { useChannelPage } from "@/hooks/channels"
-import { PostCard } from "../post-feed/post-card"
+import { PostContent } from "@/components/global/post-content";
+import { SimpleModal } from "@/components/global/simple-modal";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent, CardDescription } from "@/components/ui/card";
+import { useChannelPage } from "@/hooks/channels";
+import { PostCard } from "../post-feed/post-card";
 
-type Props = { userImage: string; channelid: string; username: string }
+type Props = { userImage: string; channelid: string; username: string };
 
 const CreateNewPost = ({ channelid, userImage, username }: Props) => {
-  const { data, mutation } = useChannelPage(channelid)
-  const { name } = data as { name: string }
+  const { data, mutation } = useChannelPage(channelid);
+  const { name } = data as { name: string };
 
   return (
     <>
@@ -65,7 +65,7 @@ const CreateNewPost = ({ channelid, userImage, username }: Props) => {
           />
         )}
     </>
-  )
-}
+  );
+};
 
-export default CreateNewPost
+export default CreateNewPost;

@@ -1,11 +1,11 @@
-import GlassSheet from "@/components/global/glass-sheet"
-import { Menu } from "lucide-react"
-import { GroupChatMenu } from "./_components/chat-menu"
+import GlassSheet from "@/components/global/glass-sheet";
+import { Menu } from "lucide-react";
+import { GroupChatMenu } from "./_components/chat-menu";
 
 type HuddlesLayoutProps = {
-  children: React.ReactNode
-  params: { groupid: string }
-}
+  children: React.ReactNode;
+  params: { groupid: string };
+};
 
 const HuddlesLayout = async ({ children, params }: HuddlesLayoutProps) => {
   return (
@@ -23,7 +23,7 @@ const HuddlesLayout = async ({ children, params }: HuddlesLayoutProps) => {
         <GroupChatMenu groupid={params.groupid} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HuddlesLayout
+export default HuddlesLayout;

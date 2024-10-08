@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { UserComment } from "@/app/group/[groupid]/channel/[channelid]/[postid]/_components/comments/user-comment"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { usePostComment } from "@/hooks/channels"
+import { UserComment } from "@/app/group/[groupid]/channel/[channelid]/[postid]/_components/comments/user-comment";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { usePostComment } from "@/hooks/channels";
 
-import { Send } from "lucide-react"
+import { Send } from "lucide-react";
 
 type PostCommentFormProps = {
-  postid: string
-  image: string
-  username: string
-}
+  postid: string;
+  image: string;
+  username: string;
+};
 
 export const PostCommentForm = ({
   postid,
@@ -19,7 +19,7 @@ export const PostCommentForm = ({
   username,
 }: PostCommentFormProps) => {
   const { isPending, onCreateComment, register, variables } =
-    usePostComment(postid)
+    usePostComment(postid);
 
   return (
     <div className="flex flex-col gap-y-5">
@@ -47,5 +47,5 @@ export const PostCommentForm = ({
         />
       )}
     </div>
-  )
-}
+  );
+};

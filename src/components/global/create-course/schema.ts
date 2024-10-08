@@ -1,7 +1,12 @@
-import { z } from "zod"
+import { z } from "zod";
 
-export const MAX_UPLOAD_SIZE = 1024 * 1024 * 2 // 2MB
-export const ACCEPTED_FILE_TYPES = ["image/png", "image/jpg", "image/jpeg"]
+export const MAX_UPLOAD_SIZE = 1024 * 1024 * 2; // 2MB
+export const ACCEPTED_FILE_TYPES = [
+  "image/png",
+  "image/jpg",
+  "image/jpeg",
+  "image/webp",
+];
 
 export const CreateCourseSchema = z.object({
   name: z
@@ -18,4 +23,4 @@ export const CreateCourseSchema = z.object({
     }),
   privacy: z.string().min(1, { message: "You need to pick a privacy setting" }),
   published: z.boolean(),
-})
+});

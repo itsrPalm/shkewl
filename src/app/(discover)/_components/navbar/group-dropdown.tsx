@@ -1,43 +1,43 @@
-"use client"
+"use client";
 
-import { DropDown } from "@/components/global/drop-down"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { CarotSort } from "@/icons"
-import { Group } from "lucide-react"
-import Link from "next/link"
+import { DropDown } from "@/components/global/drop-down";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { CarotSort } from "@/icons";
+import { Group } from "lucide-react";
+import Link from "next/link";
 
 type GroupDropDownProps = {
   members?: {
     Group: {
       channel: {
-        id: string
-      }[]
-      id: string
-      name: string
-      icon: string | null
-    } | null
-  }[]
+        id: string;
+      }[];
+      id: string;
+      name: string;
+      icon: string | null;
+    } | null;
+  }[];
   groups:
     | {
-        status: number
+        status: number;
         groups: {
           channel: {
-            id: string
-          }[]
-          id: string
-          name: string
-          icon: string | null
-        }[]
+            id: string;
+          }[];
+          id: string;
+          name: string;
+          icon: string | null;
+        }[];
       }
     | {
-        status: number
-        groups?: undefined
-      }
-}
+        status: number;
+        groups?: undefined;
+      };
+};
 
 export const GroupDropDown = ({ groups, members }: GroupDropDownProps) => {
-  const { groups: userGroups } = groups
+  const { groups: userGroups } = groups;
 
   return (
     <DropDown
@@ -86,5 +86,5 @@ export const GroupDropDown = ({ groups, members }: GroupDropDownProps) => {
           </Link>
         ))}
     </DropDown>
-  )
-}
+  );
+};

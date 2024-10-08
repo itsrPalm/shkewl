@@ -1,16 +1,16 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { useSendMessage } from "@/hooks/groups"
+"use client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useSendMessage } from "@/hooks/groups";
 
-import { Mic, Send } from "lucide-react"
+import { Mic, Send } from "lucide-react";
 
 type HuddlesFormProps = {
-  recieverid: string
-}
+  recieverid: string;
+};
 
 export const HuddlesForm = ({ recieverid }: HuddlesFormProps) => {
-  const { register, onSendNewMessage } = useSendMessage(recieverid)
+  const { register, onSendNewMessage } = useSendMessage(recieverid);
   return (
     <div>
       <form
@@ -34,5 +34,5 @@ export const HuddlesForm = ({ recieverid }: HuddlesFormProps) => {
         </Button>
       </form>
     </div>
-  )
-}
+  );
+};

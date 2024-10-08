@@ -1,21 +1,21 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { DialogClose } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
-import { useCreateCourse } from "@/hooks/courses"
+"use client";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { DialogClose } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { useCreateCourse } from "@/hooks/courses";
 
-import { cn } from "@/lib/utils"
-import { ErrorMessage } from "@hookform/error-message"
-import { FormGenerator } from "../form-generator"
-import { GlassModal } from "../glass-modal"
-import { BadgePlus } from "lucide-react"
+import { cn } from "@/lib/utils";
+import { ErrorMessage } from "@hookform/error-message";
+import { FormGenerator } from "../form-generator";
+import { GlassModal } from "../glass-modal";
+import { BadgePlus } from "lucide-react";
 
 type Props = {
-  groupid: string
-}
+  groupid: string;
+};
 
 const CourseCreate = ({ groupid }: Props) => {
   const {
@@ -28,7 +28,7 @@ const CourseCreate = ({ groupid }: Props) => {
     setValue,
     onPrivacy,
     data,
-  } = useCreateCourse(groupid)
+  } = useCreateCourse(groupid);
   if (data?.groupOwner) {
     return (
       <GlassModal
@@ -183,8 +183,8 @@ const CourseCreate = ({ groupid }: Props) => {
           </DialogClose>
         </form>
       </GlassModal>
-    )
+    );
   }
-}
+};
 
-export default CourseCreate
+export default CourseCreate;

@@ -1,47 +1,47 @@
-"use client"
+"use client";
 
-import { useChannelPage } from "@/hooks/channels"
+import { useChannelPage } from "@/hooks/channels";
 
-import InfiniteScrollObserver from "@/components/global/infinite-scroll"
-import { PaginatedPosts } from "../paginates-posts"
-import { PostCard } from "./post-card"
+import InfiniteScrollObserver from "@/components/global/infinite-scroll";
+import { PaginatedPosts } from "../paginates-posts";
+import { PostCard } from "./post-card";
 
 type PostFeedProps = {
-  channelid: string
-  userid: string
-}
+  channelid: string;
+  userid: string;
+};
 
 export const PostFeed = ({ channelid, userid }: PostFeedProps) => {
-  const { data } = useChannelPage(channelid)
+  const { data } = useChannelPage(channelid);
   const { posts } = data as {
     posts: ({
       likes: {
-        id: string
-        userId: string
-      }[]
+        id: string;
+        userId: string;
+      }[];
       channel: {
-        name: string
-      }
+        name: string;
+      };
       _count: {
-        likes: number
-        comments: number
-      }
+        likes: number;
+        comments: number;
+      };
       author: {
-        firstname: string
-        lastname: string
-        image: string | null
-      }
+        firstname: string;
+        lastname: string;
+        image: string | null;
+      };
     } & {
-      id: string
-      createdAt: Date
-      title: string | null
-      htmlContent: string | null
-      jsonContent: string | null
-      content: string
-      authorId: string
-      channelId: string
-    })[]
-  }
+      id: string;
+      createdAt: Date;
+      title: string | null;
+      htmlContent: string | null;
+      jsonContent: string | null;
+      content: string;
+      authorId: string;
+      channelId: string;
+    })[];
+  };
   return posts && posts.length > 0 ? (
     <>
       {posts.map((post) => (
@@ -71,5 +71,5 @@ export const PostFeed = ({ channelid, userid }: PostFeedProps) => {
     </>
   ) : (
     <></>
-  )
-}
+  );
+};

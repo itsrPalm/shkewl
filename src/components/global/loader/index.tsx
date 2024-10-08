@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils"
-import React from "react"
+import { cn } from "@/lib/utils";
+import React from "react";
 
 type LoaderProps = {
-  loading: boolean
-  children: React.ReactNode
-  className?: string
-}
+  loading: boolean;
+  children: React.ReactNode;
+  className?: string;
+};
 
 export const Loader = ({ loading, children, className }: LoaderProps) => {
   return loading ? (
@@ -32,5 +32,5 @@ export const Loader = ({ loading, children, className }: LoaderProps) => {
     </div>
   ) : (
     children
-  )
-}
+  );
+};

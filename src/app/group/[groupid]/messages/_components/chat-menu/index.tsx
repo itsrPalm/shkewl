@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { useGroupChat } from "@/hooks/groups"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useGroupChat } from "@/hooks/groups";
 
-import { useAppSelector } from "@/redux/store"
-import { User } from "lucide-react"
-import Link from "next/link"
+import { useAppSelector } from "@/redux/store";
+import { User } from "lucide-react";
+import Link from "next/link";
 
 type GroupChatMenuProps = {
-  groupid: string
-}
+  groupid: string;
+};
 
 export const GroupChatMenu = ({ groupid }: GroupChatMenuProps) => {
-  const { members } = useAppSelector((state) => state.onlineTrackingReducer)
+  const { members } = useAppSelector((state) => state.onlineTrackingReducer);
 
-  const { data, pathname } = useGroupChat(groupid)
+  const { data, pathname } = useGroupChat(groupid);
 
   return (
     <div className="flex flex-col">
@@ -51,5 +51,5 @@ export const GroupChatMenu = ({ groupid }: GroupChatMenuProps) => {
           </Link>
         ))}
     </div>
-  )
-}
+  );
+};

@@ -1,22 +1,22 @@
-"use client"
-import { HtmlParser } from "@/components/global/html-parser"
-import { Loader } from "@/components/global/loader"
-import BlockTextEditor from "@/components/global/rich-text-editor"
-import { Button } from "@/components/ui/button"
-import { useCourseContent, useCourseSectionInfo } from "@/hooks/courses"
+"use client";
+import { HtmlParser } from "@/components/global/html-parser";
+import { Loader } from "@/components/global/loader";
+import BlockTextEditor from "@/components/global/rich-text-editor";
+import { Button } from "@/components/ui/button";
+import { useCourseContent, useCourseSectionInfo } from "@/hooks/courses";
 
 type CourseContentFormProps = {
-  sectionid: string
-  userid: string
-  groupid: string
-}
+  sectionid: string;
+  userid: string;
+  groupid: string;
+};
 
 export const CourseContentForm = ({
   sectionid,
   userid,
   groupid,
 }: CourseContentFormProps) => {
-  const { data } = useCourseSectionInfo(sectionid)
+  const { data } = useCourseSectionInfo(sectionid);
 
   const {
     errors,
@@ -32,7 +32,7 @@ export const CourseContentForm = ({
     data?.section?.content || null,
     data?.section?.JsonContent || null,
     data?.section?.htmlContent || null,
-  )
+  );
 
   return groupid === userid ? (
     <form onSubmit={onUpdateContent} className="p-5 flex flex-col" ref={editor}>
@@ -62,5 +62,5 @@ export const CourseContentForm = ({
     </form>
   ) : (
     <HtmlParser html={data?.section?.htmlContent!} />
-  )
-}
+  );
+};

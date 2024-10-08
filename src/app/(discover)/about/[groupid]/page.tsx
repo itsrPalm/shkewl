@@ -1,34 +1,34 @@
-import { onAuthenticatedUser } from "@/actions/auth"
-import { onGetGroupInfo } from "@/actions/groups"
-import { onGetActiveSubscription } from "@/actions/payments"
+import { onAuthenticatedUser } from "@/actions/auth";
+import { onGetGroupInfo } from "@/actions/groups";
+import { onGetActiveSubscription } from "@/actions/payments";
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
-} from "@tanstack/react-query"
-import AboutGroup from "../_components/about"
-import GroupSideWidget from "@/components/global/group-side-widget"
+} from "@tanstack/react-query";
+import AboutGroup from "../_components/about";
+import GroupSideWidget from "@/components/global/group-side-widget";
 
 type Props = {
   params: {
-    groupid: string
-  }
-}
+    groupid: string;
+  };
+};
 
 const Page = async ({ params }: Props) => {
-  const query = new QueryClient()
+  const query = new QueryClient();
 
   await query.prefetchQuery({
     queryKey: ["about-group-info"],
     queryFn: () => onGetGroupInfo(params.groupid),
-  })
+  });
 
   await query.prefetchQuery({
     queryKey: ["active-subscription"],
     queryFn: () => onGetActiveSubscription(params.groupid),
-  })
+  });
 
-  const userid = await onAuthenticatedUser()
+  const userid = await onAuthenticatedUser();
 
   return (
     <HydrationBoundary state={dehydrate(query)}>
@@ -41,7 +41,7 @@ const Page = async ({ params }: Props) => {
         </div>
       </div>
     </HydrationBoundary>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

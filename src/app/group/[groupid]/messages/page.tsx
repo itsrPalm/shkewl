@@ -1,4 +1,4 @@
-import { Empty } from "@/icons"
+import { Empty } from "@/icons";
 
 const GroupMessagesPage = async () => {
   return (
@@ -6,7 +6,7 @@ const GroupMessagesPage = async () => {
       <Empty />
       <p className="text-themeTextGray">No chat selected</p>
     </div>
-  )
-}
+  );
+};
 
-export default GroupMessagesPage
+export default GroupMessagesPage;

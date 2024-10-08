@@ -1,16 +1,16 @@
-"use client"
-import { HtmlParser } from "@/components/global/html-parser"
-import { Loader } from "@/components/global/loader"
-import BlockTextEditor from "@/components/global/rich-text-editor"
-import { NoResult } from "@/components/global/search/no-results"
-import { Button } from "@/components/ui/button"
-import { useGroupAbout, useGroupInfo } from "@/hooks/groups"
-import MediaGallery from "./gallery"
+"use client";
+import { HtmlParser } from "@/components/global/html-parser";
+import { Loader } from "@/components/global/loader";
+import BlockTextEditor from "@/components/global/rich-text-editor";
+import { NoResult } from "@/components/global/search/no-results";
+import { Button } from "@/components/ui/button";
+import { useGroupAbout, useGroupInfo } from "@/hooks/groups";
+import MediaGallery from "./gallery";
 
-type Props = { userid: string; groupid: string }
+type Props = { userid: string; groupid: string };
 
 const AboutGroup = ({ groupid, userid }: Props) => {
-  const { group } = useGroupInfo()
+  const { group } = useGroupInfo();
   const {
     setJsonDescription,
     setOnDescription,
@@ -30,14 +30,14 @@ const AboutGroup = ({ groupid, userid }: Props) => {
     group.htmlDescription,
     group.gallery[0],
     groupid,
-  )
+  );
 
   if (!group)
     return (
       <div>
         <NoResult />
       </div>
-    )
+    );
 
   return (
     <div className="flex flex-col gap-y-10">
@@ -120,7 +120,7 @@ const AboutGroup = ({ groupid, userid }: Props) => {
         </form>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default AboutGroup
+export default AboutGroup;

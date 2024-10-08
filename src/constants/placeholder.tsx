@@ -6,13 +6,13 @@ import {
   Heart,
   MegaPhone,
   WhiteLabel,
-} from "@/icons"
+} from "@/icons";
 
 export type CreateGroupPlaceholderProps = {
-  id: string
-  label: string
-  icon: JSX.Element
-}
+  id: string;
+  label: string;
+  icon: JSX.Element;
+};
 
 export const CREATE_GROUP_PLACEHOLDER: CreateGroupPlaceholderProps[] = [
   {
@@ -50,4 +50,4 @@ export const CREATE_GROUP_PLACEHOLDER: CreateGroupPlaceholderProps[] = [
     label: "White-labeling options",
     icon: <WhiteLabel />,
   },
-]
+];

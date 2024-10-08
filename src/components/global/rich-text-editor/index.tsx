@@ -1,7 +1,7 @@
-"use client"
-import { cn } from "@/lib/utils"
-import { ErrorMessage } from "@hookform/error-message"
-import Placeholder from "@tiptap/extension-placeholder"
+"use client";
+import { cn } from "@/lib/utils";
+import { ErrorMessage } from "@hookform/error-message";
+import Placeholder from "@tiptap/extension-placeholder";
 import {
   EditorBubble,
   EditorCommand,
@@ -10,35 +10,35 @@ import {
   EditorContent,
   EditorRoot,
   JSONContent,
-} from "novel"
-import { CharacterCount, handleCommandNavigation } from "novel/extensions"
-import { useState } from "react"
-import { FieldErrors } from "react-hook-form"
-import { HtmlParser } from "../html-parser"
-import { ColorSelector } from "./color-selector"
-import { defaultExtensions } from "./extensions"
-import { Image } from "./image"
-import { LinkSelector } from "./link-selector"
-import NodeSelector from "./node-selector"
-import { slashCommand, suggestionItems } from "./slash-command"
-import { TextButtons } from "./text-slector"
-import { Video } from "./video"
+} from "novel";
+import { CharacterCount, handleCommandNavigation } from "novel/extensions";
+import { type Dispatch, type SetStateAction, useState } from "react";
+import { FieldErrors } from "react-hook-form";
+import { HtmlParser } from "../html-parser";
+import { ColorSelector } from "./color-selector";
+import { defaultExtensions } from "./extensions";
+import { Image } from "./image";
+import { LinkSelector } from "./link-selector";
+import NodeSelector from "./node-selector";
+import { slashCommand, suggestionItems } from "./slash-command";
+import { TextButtons } from "./text-slector";
+import { Video } from "./video";
 
 type Props = {
-  content: JSONContent | undefined
-  setContent: React.Dispatch<React.SetStateAction<JSONContent | undefined>>
-  min: number
-  max: number
-  name: string
-  errors: FieldErrors
-  textContent: string | undefined
-  setTextContent: React.Dispatch<React.SetStateAction<string | undefined>>
-  onEdit?: boolean
-  inline?: boolean
-  disabled?: boolean
-  htmlContent?: string | undefined
-  setHtmlContent?: React.Dispatch<React.SetStateAction<string | undefined>>
-}
+  content: JSONContent | undefined;
+  setContent: Dispatch<SetStateAction<JSONContent | undefined>>;
+  min: number;
+  max: number;
+  name: string;
+  errors: FieldErrors;
+  textContent: string | undefined;
+  setTextContent: Dispatch<SetStateAction<string | undefined>>;
+  onEdit?: boolean;
+  inline?: boolean;
+  disabled?: boolean;
+  htmlContent?: string | undefined;
+  setHtmlContent?: Dispatch<SetStateAction<string | undefined>>;
+};
 
 const BlockTextEditor = ({
   setContent,
@@ -55,12 +55,12 @@ const BlockTextEditor = ({
   htmlContent,
   setHtmlContent,
 }: Props) => {
-  const [openNode, setOpenNode] = useState<boolean>(false)
-  const [openLink, setOpenLink] = useState<boolean>(false)
-  const [openColor, setOpenColor] = useState<boolean>(false)
+  const [openNode, setOpenNode] = useState<boolean>(false);
+  const [openLink, setOpenLink] = useState<boolean>(false);
+  const [openColor, setOpenColor] = useState<boolean>(false);
   const [characters, setCharacters] = useState<number | undefined>(
     textContent?.length || undefined,
-  )
+  );
 
   return (
     <div>
@@ -104,16 +104,16 @@ const BlockTextEditor = ({
               Image,
             ]}
             onUpdate={({ editor }) => {
-              const json = editor.getJSON()
-              const text = editor.getText()
+              const json = editor.getJSON();
+              const text = editor.getText();
 
               if (setHtmlContent) {
-                const html = editor.getHTML()
-                setHtmlContent(html)
+                const html = editor.getHTML();
+                setHtmlContent(html);
               }
-              setContent(json)
-              setTextContent(text)
-              setCharacters(text.length)
+              setContent(json);
+              setTextContent(text);
+              setCharacters(text.length);
             }}
           >
             <EditorCommand className="z-50 h-auto max-h-[330px]  w-72 overflow-y-auto rounded-md border border-muted bg-background px-1 py-2 shadow-md transition-all">
@@ -201,7 +201,7 @@ const BlockTextEditor = ({
         </EditorRoot>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default BlockTextEditor
+export default BlockTextEditor;

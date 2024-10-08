@@ -1,6 +1,6 @@
-import Image from "next/image"
+import Image from "next/image";
 
-type Props = {}
+type Props = {};
 
 const DashboardSnippet = (props: Props) => {
   return (
@@ -19,7 +19,7 @@ const DashboardSnippet = (props: Props) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DashboardSnippet
+export default DashboardSnippet;

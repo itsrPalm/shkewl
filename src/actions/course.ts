@@ -1,6 +1,6 @@
-"use server"
+"use server";
 
-import { client } from "@/lib/prisma"
+import { client } from "@/lib/prisma";
 
 export const onGetGroupCourses = async (groupid: string) => {
   try {
@@ -12,23 +12,23 @@ export const onGetGroupCourses = async (groupid: string) => {
       orderBy: {
         createdAt: "desc",
       },
-    })
+    });
 
     if (courses && courses.length > 0) {
-      return { status: 200, courses }
+      return { status: 200, courses };
     }
 
     return {
       status: 404,
       message: "No courses found",
-    }
+    };
   } catch (error) {
     return {
       status: 400,
       message: "Oops! something went wrong",
-    }
+    };
   }
-}
+};
 
 export const onCreateGroupCourse = async (
   groupid: string,
@@ -56,17 +56,17 @@ export const onCreateGroupCourse = async (
           },
         },
       },
-    })
+    });
 
     if (course) {
-      return { status: 200, message: "Course successfully created" }
+      return { status: 200, message: "Course successfully created" };
     }
 
-    return { status: 404, message: "Group not found" }
+    return { status: 404, message: "Group not found" };
   } catch (error) {
-    return { status: 400, message: "Oops! something went wrong" }
+    return { status: 400, message: "Oops! something went wrong" };
   }
-}
+};
 export const onGetCourseModules = async (courseId: string) => {
   try {
     const modules = await client.module.findMany({
@@ -83,23 +83,23 @@ export const onGetCourseModules = async (courseId: string) => {
           },
         },
       },
-    })
+    });
 
     if (modules && modules.length > 0) {
-      return { status: 200, modules }
+      return { status: 200, modules };
     }
 
     return {
       status: 404,
       message: "No modules found",
-    }
+    };
   } catch (error) {
     return {
       status: 400,
       message: "Oops! something went wrong",
-    }
+    };
   }
-}
+};
 
 export const onCreateCourseModule = async (
   courseId: string,
@@ -119,23 +119,23 @@ export const onCreateCourseModule = async (
           },
         },
       },
-    })
+    });
 
     if (courseModule) {
-      return { status: 200, message: "Module successfully create" }
+      return { status: 200, message: "Module successfully create" };
     }
 
     return {
       status: 404,
       message: "No courses found",
-    }
+    };
   } catch (error) {
     return {
       status: 400,
       message: "Oops! something went wrong",
-    }
+    };
   }
-}
+};
 
 export const onUpdateModule = async (
   moduleId: string,
@@ -151,21 +151,21 @@ export const onUpdateModule = async (
         data: {
           title: content,
         },
-      })
+      });
 
       if (title) {
-        return { status: 200, message: "Name successfully updated" }
+        return { status: 200, message: "Name successfully updated" };
       }
 
       return {
         status: 404,
         message: "Module not found!",
-      }
+      };
     }
   } catch (error) {
-    return { status: 400, message: "Something went wrong" }
+    return { status: 400, message: "Something went wrong" };
   }
-}
+};
 
 export const onUpdateSection = async (
   sectionId: string,
@@ -181,9 +181,9 @@ export const onUpdateSection = async (
         data: {
           name: content,
         },
-      })
+      });
 
-      return { status: 200, message: "Section successfully updated" }
+      return { status: 200, message: "Section successfully updated" };
     }
     if (type === "COMPLETE") {
       await client.section.update({
@@ -193,16 +193,16 @@ export const onUpdateSection = async (
         data: {
           complete: true,
         },
-      })
+      });
 
-      return { status: 200, message: "Section successfully completed" }
+      return { status: 200, message: "Section successfully completed" };
     }
 
-    return { status: 404, message: "Section not found" }
+    return { status: 404, message: "Section not found" };
   } catch (error) {
-    return { status: 400, message: "Something went wrong!" }
+    return { status: 400, message: "Something went wrong!" };
   }
-}
+};
 
 export const onCreateModuleSection = async (
   moduleId: string,
@@ -220,17 +220,17 @@ export const onCreateModuleSection = async (
           },
         },
       },
-    })
+    });
 
     if (section) {
-      return { status: 200, message: "New section created" }
+      return { status: 200, message: "New section created" };
     }
 
-    return { status: 404, message: "Module not found" }
+    return { status: 404, message: "Module not found" };
   } catch (error) {
-    return { status: 400, message: "Oops! something went wrong" }
+    return { status: 400, message: "Oops! something went wrong" };
   }
-}
+};
 
 export const onGetSectionInfo = async (sectionid: string) => {
   try {
@@ -238,17 +238,17 @@ export const onGetSectionInfo = async (sectionid: string) => {
       where: {
         id: sectionid,
       },
-    })
+    });
 
     if (section) {
-      return { status: 200, section }
+      return { status: 200, section };
     }
 
-    return { status: 404, message: "Course section not found" }
+    return { status: 404, message: "Course section not found" };
   } catch (error) {
-    return { status: 400, message: "Oops! something went wrong" }
+    return { status: 400, message: "Oops! something went wrong" };
   }
-}
+};
 
 export const onUpdateCourseSectionContent = async (
   sectionid: string,
@@ -266,14 +266,14 @@ export const onUpdateCourseSectionContent = async (
         htmlContent: html,
         content,
       },
-    })
+    });
 
     if (section) {
-      return { status: 200, message: "Course content added" }
+      return { status: 200, message: "Course content added" };
     }
 
-    return { status: 404, message: "Section not found!" }
+    return { status: 404, message: "Section not found!" };
   } catch (error) {
-    return { status: 400, message: "Oop! something went wrong" }
+    return { status: 400, message: "Oop! something went wrong" };
   }
-}
+};

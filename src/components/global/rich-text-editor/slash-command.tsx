@@ -1,4 +1,4 @@
-import { upload } from "@/lib/uploadcare"
+import { upload } from "@/lib/uploadcare";
 import {
   CheckSquare,
   Code,
@@ -12,8 +12,8 @@ import {
   Text,
   TextQuote,
   Video,
-} from "lucide-react"
-import { Command, createSuggestionItems, renderItems } from "novel/extensions"
+} from "lucide-react";
+import { Command, createSuggestionItems, renderItems } from "novel/extensions";
 
 export const suggestionItems = createSuggestionItems([
   {
@@ -21,8 +21,8 @@ export const suggestionItems = createSuggestionItems([
     description: "Let us know how we can improve.",
     icon: <MessageSquarePlus size={18} />,
     command: ({ editor, range }) => {
-      editor.chain().focus().deleteRange(range).run()
-      window.open("/feedback", "_blank")
+      editor.chain().focus().deleteRange(range).run();
+      window.open("/feedback", "_blank");
     },
   },
   {
@@ -36,7 +36,7 @@ export const suggestionItems = createSuggestionItems([
         .focus()
         .deleteRange(range)
         .toggleNode("paragraph", "paragraph")
-        .run()
+        .run();
     },
   },
   {
@@ -46,7 +46,7 @@ export const suggestionItems = createSuggestionItems([
     icon: <CheckSquare size={18} />,
     command: ({ editor, range }) => {
       //@ts-ignore
-      editor.chain().focus().deleteRange(range).toggleTaskList().run()
+      editor.chain().focus().deleteRange(range).toggleTaskList().run();
     },
   },
   {
@@ -60,7 +60,7 @@ export const suggestionItems = createSuggestionItems([
         .focus()
         .deleteRange(range)
         .setNode("heading", { level: 1 })
-        .run()
+        .run();
     },
   },
   {
@@ -74,7 +74,7 @@ export const suggestionItems = createSuggestionItems([
         .focus()
         .deleteRange(range)
         .setNode("heading", { level: 2 })
-        .run()
+        .run();
     },
   },
   {
@@ -88,7 +88,7 @@ export const suggestionItems = createSuggestionItems([
         .focus()
         .deleteRange(range)
         .setNode("heading", { level: 3 })
-        .run()
+        .run();
     },
   },
   {
@@ -98,7 +98,7 @@ export const suggestionItems = createSuggestionItems([
     icon: <List size={18} />,
     command: ({ editor, range }) => {
       //@ts-ignore
-      editor.chain().focus().deleteRange(range).toggleBulletList().run()
+      editor.chain().focus().deleteRange(range).toggleBulletList().run();
     },
   },
   {
@@ -108,7 +108,7 @@ export const suggestionItems = createSuggestionItems([
     icon: <ListOrdered size={18} />,
     command: ({ editor, range }) => {
       //@ts-ignore
-      editor.chain().focus().deleteRange(range).toggleOrderedList().run()
+      editor.chain().focus().deleteRange(range).toggleOrderedList().run();
     },
   },
   {
@@ -141,17 +141,17 @@ export const suggestionItems = createSuggestionItems([
     searchTerms: ["photo", "picture", "media"],
     icon: <ImageIcon size={18} />,
     command: ({ editor, range }) => {
-      editor.chain().focus().deleteRange(range).run()
+      editor.chain().focus().deleteRange(range).run();
       // upload image
-      const input = document.createElement("input")
-      input.type = "file"
-      input.accept = "image/*"
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "image/*";
       input.onchange = async () => {
         if (input.files?.length) {
-          const file = input.files[0]
-          const uploaded = await upload.uploadFile(file)
+          const file = input.files[0];
+          const uploaded = await upload.uploadFile(file);
           //This should return a src of the uploaded image
-          const imgsrc = `https://ucarecdn.com/${uploaded.uuid}/`
+          const imgsrc = `https://ucarecdn.com/${uploaded.uuid}/`;
           if (imgsrc) {
             editor.commands.insertContent([
               {
@@ -160,11 +160,11 @@ export const suggestionItems = createSuggestionItems([
                   src: imgsrc,
                 },
               },
-            ])
+            ]);
           }
         }
-      }
-      input.click()
+      };
+      input.click();
     },
   },
   {
@@ -172,8 +172,8 @@ export const suggestionItems = createSuggestionItems([
     description: "Embed video",
     icon: <Video />,
     command: ({ editor, range }) => {
-      editor.chain().focus().deleteRange(range).run()
-      const videoSrc = window.prompt("Video URL")
+      editor.chain().focus().deleteRange(range).run();
+      const videoSrc = window.prompt("Video URL");
       if (videoSrc?.length) {
         editor.commands.insertContent([
           {
@@ -182,15 +182,15 @@ export const suggestionItems = createSuggestionItems([
               src: videoSrc,
             },
           },
-        ])
+        ]);
       }
     },
   },
-])
+]);
 
 export const slashCommand = Command.configure({
   suggestion: {
     items: () => suggestionItems,
     render: renderItems,
   },
-})
+});

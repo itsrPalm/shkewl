@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useComments, useReply } from "@/hooks/channels"
-import { UserComment } from "./user-comment"
+import { useComments, useReply } from "@/hooks/channels";
+import { UserComment } from "./user-comment";
 
 type PostCommentsProps = {
-  postid: string
-}
+  postid: string;
+};
 
 export const PostComments = ({ postid }: PostCommentsProps) => {
-  const { data } = useComments(postid)
-  const { onReply, onSetReply, onSetActiveComment, activeComment } = useReply()
+  const { data } = useComments(postid);
+  const { onReply, onSetReply, onSetActiveComment, activeComment } = useReply();
 
   return (
     <div className="mt-5">
@@ -35,5 +35,5 @@ export const PostComments = ({ postid }: PostCommentsProps) => {
         <p className="text-themeTextGray">No Comments</p>
       )}
     </div>
-  )
-}
+  );
+};

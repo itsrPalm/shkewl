@@ -7,11 +7,11 @@ import {
   TiptapImage,
   TiptapLink,
   UpdatedImage,
-} from "novel/extensions"
+} from "novel/extensions";
 
-import { cx } from "class-variance-authority"
+import { cx } from "class-variance-authority";
 
-import { UploadImagesPlugin } from "novel/plugins"
+import { UploadImagesPlugin } from "novel/plugins";
 
 const tiptapImage = TiptapImage.extend({
   addProseMirrorPlugins() {
@@ -19,42 +19,42 @@ const tiptapImage = TiptapImage.extend({
       UploadImagesPlugin({
         imageClass: cx("opacity-40 rounded-lg border border-stone-200"),
       }),
-    ]
+    ];
   },
 }).configure({
   allowBase64: true,
   HTMLAttributes: {
     class: cx("rounded-lg border border-muted"),
   },
-})
+});
 
 // You can overwrite the placeholder with your own configuration
-const placeholder = Placeholder
+const placeholder = Placeholder;
 const tiptapLink = TiptapLink.configure({
   HTMLAttributes: {
     class: cx(
       "text-muted-foreground underline underline-offset-[3px] hover:text-primary transition-colors cursor-pointer",
     ),
   },
-})
+});
 
 const taskList = TaskList.configure({
   HTMLAttributes: {
     class: cx("not-prose pl-2"),
   },
-})
+});
 const taskItem = TaskItem.configure({
   HTMLAttributes: {
     class: cx("flex items-start my-4"),
   },
   nested: true,
-})
+});
 
 const horizontalRule = HorizontalRule.configure({
   HTMLAttributes: {
     class: cx("mt-4 mb-6 border-t border-muted-foreground"),
   },
-})
+});
 
 const starterKit = StarterKit.configure({
   bulletList: {
@@ -94,7 +94,7 @@ const starterKit = StarterKit.configure({
     width: 4,
   },
   gapcursor: false,
-})
+});
 
 export const defaultExtensions = [
   starterKit,
@@ -105,4 +105,4 @@ export const defaultExtensions = [
   taskList,
   taskItem,
   horizontalRule,
-]
+];

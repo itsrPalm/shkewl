@@ -1,31 +1,31 @@
-"use client"
-import { Input } from "@/components/ui/input"
-import { SIDEBAR_SETTINGS_MENU } from "@/constants/menus"
-import { useChannelInfo } from "@/hooks/channels"
-import { cn } from "@/lib/utils"
-import { Trash } from "lucide-react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { IChannels } from "."
-import { IconRenderer } from "../icon-renderer"
-import IconDropDown from "./icon-dropdown"
+"use client";
+import { Input } from "@/components/ui/input";
+import { SIDEBAR_SETTINGS_MENU } from "@/constants/menus";
+import { useChannelInfo } from "@/hooks/channels";
+import { cn } from "@/lib/utils";
+import { Trash } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { IChannels } from ".";
+import { IconRenderer } from "../icon-renderer";
+import IconDropDown from "./icon-dropdown";
 
 type Props = {
-  channels: IChannels[]
+  channels: IChannels[];
   optimisticChannel:
     | {
-        id: string
-        name: string
-        icon: string
-        createdAt: Date
-        groupId: string | null
+        id: string;
+        name: string;
+        icon: string;
+        createdAt: Date;
+        groupId: string | null;
       }
-    | undefined
-  loading: boolean
-  groupid: string
-  groupUserId: string
-  userId: string
-}
+    | undefined;
+  loading: boolean;
+  groupid: string;
+  groupUserId: string;
+  userId: string;
+};
 
 const SideBarMenu = ({
   channels,
@@ -35,8 +35,8 @@ const SideBarMenu = ({
   optimisticChannel,
   userId,
 }: Props) => {
-  const pathname = usePathname()
-  const currentPage = pathname.split("/").pop()
+  const pathname = usePathname();
+  const currentPage = pathname.split("/").pop();
 
   const {
     channel: current,
@@ -51,7 +51,7 @@ const SideBarMenu = ({
     icon,
     onChannelDetele,
     deleteVariables,
-  } = useChannelInfo()
+  } = useChannelInfo();
 
   if (pathname.includes("settings")) {
     return (
@@ -90,7 +90,7 @@ const SideBarMenu = ({
           ),
         )}
       </div>
-    )
+    );
   }
 
   return (
@@ -168,7 +168,7 @@ const SideBarMenu = ({
         <></>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SideBarMenu
+export default SideBarMenu;

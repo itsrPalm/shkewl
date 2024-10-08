@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { z } from "zod";
 
 export const CourseContentSchema = z.object({
   content: z
@@ -19,4 +19,4 @@ export const CourseContentSchema = z.object({
     })
     .optional()
     .or(z.literal("").transform(() => undefined)),
-})
+});

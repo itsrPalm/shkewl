@@ -1,13 +1,13 @@
-"use client"
-import { useAppSelector } from "@/redux/store"
-import dynamic from "next/dynamic"
-import ExploreSlider from "./explore-slider"
-import GroupList from "./group-list"
+"use client";
+import { useAppSelector } from "@/redux/store";
+import dynamic from "next/dynamic";
+import ExploreSlider from "./explore-slider";
+import GroupList from "./group-list";
 
 type Props = {
-  layout: "SLIDER" | "LIST"
-  category?: string
-}
+  layout: "SLIDER" | "LIST";
+  category?: string;
+};
 
 const SearchGroups = dynamic(
   () =>
@@ -15,12 +15,12 @@ const SearchGroups = dynamic(
   {
     ssr: false,
   },
-)
+);
 
 const ExplorePageContent = ({ layout, category }: Props) => {
   const { isSearching, data, status, debounce } = useAppSelector(
     (state) => state.searchReducer,
-  )
+  );
 
   return (
     <div className="flex flex-col">
@@ -55,7 +55,7 @@ const ExplorePageContent = ({ layout, category }: Props) => {
         ))
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ExplorePageContent
+export default ExplorePageContent;

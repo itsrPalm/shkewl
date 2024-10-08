@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useAllSubscriptions } from "@/hooks/payment"
-import { SubscriptionCard } from "../card"
+import { useAllSubscriptions } from "@/hooks/payment";
+import { SubscriptionCard } from "../card";
 
 type SubscriptionsProps = {
-  groupid: string
-}
+  groupid: string;
+};
 
 export const Subscriptions = ({ groupid }: SubscriptionsProps) => {
-  const { data, mutate } = useAllSubscriptions(groupid)
+  const { data, mutate } = useAllSubscriptions(groupid);
 
   return data?.status === 200 && data.subscriptions ? (
     data.subscriptions.map((subscription) => (
@@ -22,5 +22,5 @@ export const Subscriptions = ({ groupid }: SubscriptionsProps) => {
     ))
   ) : (
     <></>
-  )
-}
+  );
+};

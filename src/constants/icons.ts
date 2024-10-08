@@ -1,7 +1,7 @@
 type IconListProps = {
-  icon: string
-  id: string
-}
+  icon: string;
+  id: string;
+};
 
 export const ICON_LIST: IconListProps[] = [
   {
@@ -12,4 +12,4 @@ export const ICON_LIST: IconListProps[] = [
     id: "1",
     icon: "announcement",
   },
-]
+];

@@ -1,20 +1,20 @@
-import { Textarea } from "@/components/ui/textarea"
-import { ErrorMessage } from "@hookform/error-message"
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form"
-import { Input } from "../../ui/input"
-import { Label } from "../../ui/label"
+import { Textarea } from "@/components/ui/textarea";
+import { ErrorMessage } from "@hookform/error-message";
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import { Input } from "../../ui/input";
+import { Label } from "../../ui/label";
 
 type FormGeneratorProps = {
-  type?: "text" | "email" | "password" | "number"
-  inputType: "select" | "input" | "textarea"
-  options?: { value: string; label: string; id: string }[]
-  label?: string
-  placeholder: string
-  register: UseFormRegister<any>
-  name: string
-  errors: FieldErrors<FieldValues>
-  lines?: number
-}
+  type?: "text" | "email" | "password" | "number";
+  inputType: "select" | "input" | "textarea";
+  options?: { value: string; label: string; id: string }[];
+  label?: string;
+  placeholder: string;
+  register: UseFormRegister<any>;
+  name: string;
+  errors: FieldErrors<FieldValues>;
+  lines?: number;
+};
 
 export const FormGenerator = ({
   inputType,
@@ -49,7 +49,7 @@ export const FormGenerator = ({
             )}
           />
         </Label>
-      )
+      );
     case "select":
       return (
         <Label htmlFor={`select-${label}`} className="flex flex-col gap-2">
@@ -80,7 +80,7 @@ export const FormGenerator = ({
             )}
           />
         </Label>
-      )
+      );
     case "textarea":
       return (
         <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
@@ -102,8 +102,8 @@ export const FormGenerator = ({
             )}
           />
         </Label>
-      )
+      );
     default:
-      return <></>
+      return <></>;
   }
-}
+};

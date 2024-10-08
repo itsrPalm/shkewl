@@ -1,14 +1,14 @@
-"use client"
-import BlockTextEditor from "@/components/global/rich-text-editor"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { useCreateChannelPost } from "@/hooks/channels"
+"use client";
+import BlockTextEditor from "@/components/global/rich-text-editor";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useCreateChannelPost } from "@/hooks/channels";
 
-import { Upload } from "lucide-react"
+import { Upload } from "lucide-react";
 
 type PostContentProps = {
-  channelid: string
-}
+  channelid: string;
+};
 
 export const PostContent = ({ channelid }: PostContentProps) => {
   const {
@@ -21,7 +21,7 @@ export const PostContent = ({ channelid }: PostContentProps) => {
     setOnHtmlDescription,
     setJsonDescription,
     onCreatePost,
-  } = useCreateChannelPost(channelid)
+  } = useCreateChannelPost(channelid);
 
   return (
     <form className="flex flex-col gap-y-5 w-full" onSubmit={onCreatePost}>
@@ -49,5 +49,5 @@ export const PostContent = ({ channelid }: PostContentProps) => {
         Create
       </Button>
     </form>
-  )
-}
+  );
+};

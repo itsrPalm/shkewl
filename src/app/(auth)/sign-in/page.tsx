@@ -1,7 +1,7 @@
 // import { GoogleAuthButton } from "@/components/global/google-oauth-button"
-import SignInForm from "@/components/forms/sign-in"
-import { GoogleAuthButton } from "@/components/global/google-oauth-button"
-import { Separator } from "@/components/ui/separator"
+import SignInForm from "@/components/forms/sign-in";
+import { GoogleAuthButton } from "@/components/global/google-oauth-button";
+import { Separator } from "@/components/ui/separator";
 
 const SignInPage = () => {
   return (
@@ -20,10 +20,10 @@ const SignInPage = () => {
       </div>
       <GoogleAuthButton method="signin" />
     </>
-  )
-}
+  );
+};
 
-export default SignInPage
+export default SignInPage;
 
 // import SignInForm from "@/components/forms/sign-in"
 // import { GoogleAuthButton } from "@/components/global/google-oauth-button"

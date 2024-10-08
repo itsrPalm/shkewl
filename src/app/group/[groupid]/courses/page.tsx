@@ -1,25 +1,25 @@
-import { onGetGroupCourses } from "@/actions/course"
-import CourseCreate from "@/components/global/create-course"
+import { onGetGroupCourses } from "@/actions/course";
+import CourseCreate from "@/components/global/create-course";
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
-} from "@tanstack/react-query"
-import CourseList from "./_components/course-list"
+} from "@tanstack/react-query";
+import CourseList from "./_components/course-list";
 
 type Props = {
   params: {
-    groupid: string
-  }
-}
+    groupid: string;
+  };
+};
 
 const CoursesPage = async ({ params }: Props) => {
-  const client = new QueryClient()
+  const client = new QueryClient();
 
   await client.prefetchQuery({
     queryKey: ["group-courses"],
     queryFn: () => onGetGroupCourses(params.groupid),
-  })
+  });
 
   return (
     <HydrationBoundary state={dehydrate(client)}>
@@ -28,7 +28,7 @@ const CoursesPage = async ({ params }: Props) => {
         <CourseList groupid={params.groupid} />
       </div>
     </HydrationBoundary>
-  )
-}
+  );
+};
 
-export default CoursesPage
+export default CoursesPage;

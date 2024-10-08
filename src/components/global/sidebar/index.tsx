@@ -1,67 +1,67 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import { useGroupChatOnline } from "@/hooks/groups"
-import { useSideBar } from "@/hooks/navigation"
-import { CarotSort } from "@/icons"
-import { cn } from "@/lib/utils"
-import { Group, Plus } from "lucide-react"
-import Link from "next/link"
-import { v4 } from "uuid"
-import { DropDown } from "../drop-down"
-import SideBarMenu from "./menu"
+"use client";
+import { Button } from "@/components/ui/button";
+import { useGroupChatOnline } from "@/hooks/groups";
+import { useSideBar } from "@/hooks/navigation";
+import { CarotSort } from "@/icons";
+import { cn } from "@/lib/utils";
+import { Group, Plus } from "lucide-react";
+import Link from "next/link";
+import { v4 } from "uuid";
+import { DropDown } from "../drop-down";
+import SideBarMenu from "./menu";
 
 type Props = {
-  groupid: string
-  userid: string
-  mobile?: boolean
-}
+  groupid: string;
+  userid: string;
+  mobile?: boolean;
+};
 
 export interface IGroupInfo {
-  status: number
+  status: number;
   group:
     | {
-        id: string
-        name: string
-        category: string
-        thumbnail: string | null
-        description: string | null
-        gallery: string[]
-        jsonDescription: string | null
-        htmlDescription: string | null
-        privacy: boolean
-        active: boolean
-        createdAt: Date
-        userId: string
-        icon: string
+        id: string;
+        name: string;
+        category: string;
+        thumbnail: string | null;
+        description: string | null;
+        gallery: string[];
+        jsonDescription: string | null;
+        htmlDescription: string | null;
+        privacy: boolean;
+        active: boolean;
+        createdAt: Date;
+        userId: string;
+        icon: string;
       }
-    | undefined
+    | undefined;
 }
 
 export interface IChannels {
-  id: string
-  name: string
-  icon: string
-  createdAt: Date
-  groupId: string | null
+  id: string;
+  name: string;
+  icon: string;
+  createdAt: Date;
+  groupId: string | null;
 }
 
 export interface IGroups {
-  status: number
+  status: number;
   groups:
     | {
-        icon: string | null
-        id: string
-        name: string
+        icon: string | null;
+        id: string;
+        name: string;
       }[]
-    | undefined
+    | undefined;
 }
 
 const SideBar = ({ groupid, userid, mobile }: Props) => {
   const { groupInfo, groups, mutate, variables, isPending, channels } =
-    useSideBar(groupid)
-  console.log(groups.groups)
+    useSideBar(groupid);
+  console.log(groups.groups);
 
-  useGroupChatOnline(userid)
+  useGroupChatOnline(userid);
 
   return (
     <div
@@ -141,7 +141,7 @@ const SideBar = ({ groupid, userid, mobile }: Props) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;

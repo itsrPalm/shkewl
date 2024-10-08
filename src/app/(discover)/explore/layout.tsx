@@ -1,15 +1,15 @@
-import { onAuthenticatedUser } from "@/actions/auth"
-import BackdropGradient from "@/components/global/backdrop-gradient"
-import GradientText from "@/components/global/gradient-text"
+import { onAuthenticatedUser } from "@/actions/auth";
+import BackdropGradient from "@/components/global/backdrop-gradient";
+import GradientText from "@/components/global/gradient-text";
 
-import { GroupListSlider } from "@/components/global/group-list-slider"
-import Search from "@/components/global/search"
+import { GroupListSlider } from "@/components/global/group-list-slider";
+import Search from "@/components/global/search";
 
-import Link from "next/link"
-import React from "react"
+import Link from "next/link";
+import React from "react";
 
 const ExploreLayout = async ({ children }: { children: React.ReactNode }) => {
-  const user = await onAuthenticatedUser()
+  const user = await onAuthenticatedUser();
   return (
     <div className="flex-1 flex flex-col">
       <div className="flex flex-col items-center mt-36 px-10">
@@ -46,7 +46,7 @@ const ExploreLayout = async ({ children }: { children: React.ReactNode }) => {
       </div>
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default ExploreLayout
+export default ExploreLayout;

@@ -1,11 +1,11 @@
-"use server"
+"use server";
 
-import { client } from "@/lib/prisma"
-import { onAuthenticatedUser } from "./auth"
+import { client } from "@/lib/prisma";
+import { onAuthenticatedUser } from "./auth";
 
 export const onGetChannelInfo = async (channelid: string) => {
   try {
-    const user = await onAuthenticatedUser()
+    const user = await onAuthenticatedUser();
     const channel = await client.channel.findUnique({
       where: {
         id: channelid,
@@ -47,19 +47,19 @@ export const onGetChannelInfo = async (channelid: string) => {
           },
         },
       },
-    })
-    return channel
+    });
+    return channel;
   } catch (error) {
-    return { status: 400, message: "Oops! something went wrong" }
+    return { status: 400, message: "Oops! something went wrong" };
   }
-}
+};
 
 export const onCreateNewChannel = async (
   groupid: string,
   data: {
-    id: string
-    name: string
-    icon: string
+    id: string;
+    name: string;
+    icon: string;
   },
 ) => {
   try {
@@ -77,23 +77,23 @@ export const onCreateNewChannel = async (
       select: {
         channel: true,
       },
-    })
+    });
 
     if (channel) {
-      return { status: 200, channel: channel.channel }
+      return { status: 200, channel: channel.channel };
     }
 
     return {
       status: 404,
       message: "Channel could not be created",
-    }
+    };
   } catch (error) {
     return {
       status: 400,
       message: "Oops! something went wrong",
-    }
+    };
   }
-}
+};
 
 export const onUpdateChannelInfo = async (
   channelid: string,
@@ -109,18 +109,18 @@ export const onUpdateChannelInfo = async (
         data: {
           name,
         },
-      })
+      });
 
       if (channel) {
         return {
           status: 200,
           message: "Channel name successfully updated",
-        }
+        };
       }
       return {
         status: 404,
         message: "Channel not found! try again later",
-      }
+      };
     }
     if (icon) {
       const channel = await client.channel.update({
@@ -130,17 +130,17 @@ export const onUpdateChannelInfo = async (
         data: {
           icon,
         },
-      })
+      });
       if (channel) {
         return {
           status: 200,
           message: "Channel icon successfully updated",
-        }
+        };
       }
       return {
         status: 404,
         message: "Channel not found! try again later",
-      }
+      };
     } else {
       const channel = await client.channel.update({
         where: {
@@ -150,23 +150,23 @@ export const onUpdateChannelInfo = async (
           icon,
           name,
         },
-      })
+      });
       if (channel) {
         return {
           status: 200,
           message: "Channel successfully updated",
-        }
+        };
       }
       return {
         status: 404,
         message: "Channel not found! try again later",
-      }
+      };
     }
   } catch (error) {
-    console.log(error)
-    return { status: 400, message: "Oops! something went wrong" }
+    console.log(error);
+    return { status: 400, message: "Oops! something went wrong" };
   }
-}
+};
 
 export const onDeleteChannel = async (channelId: string) => {
   try {
@@ -174,17 +174,17 @@ export const onDeleteChannel = async (channelId: string) => {
       where: {
         id: channelId,
       },
-    })
+    });
 
     if (channel) {
-      return { status: 200, message: "Channel deleted successfully" }
+      return { status: 200, message: "Channel deleted successfully" };
     }
 
-    return { status: 404, message: "Channel not found!" }
+    return { status: 404, message: "Channel not found!" };
   } catch (error) {
-    return { status: 400, message: "Oops! something went wrong" }
+    return { status: 400, message: "Oops! something went wrong" };
   }
-}
+};
 export const onCreateChannelPost = async (
   channelid: string,
   title: string,
@@ -194,7 +194,7 @@ export const onCreateChannelPost = async (
   postid: string,
 ) => {
   try {
-    const user = await onAuthenticatedUser()
+    const user = await onAuthenticatedUser();
     const post = await client.post.create({
       data: {
         id: postid,
@@ -205,28 +205,28 @@ export const onCreateChannelPost = async (
         htmlContent,
         jsonContent,
       },
-    })
+    });
 
     if (post) {
-      return { status: 200, message: "Post successfully created" }
+      return { status: 200, message: "Post successfully created" };
     }
 
-    return { status: 404, message: "Channel not found" }
+    return { status: 404, message: "Channel not found" };
   } catch (error) {
-    return { status: 400, message: "Oops! something went wrong" }
+    return { status: 400, message: "Oops! something went wrong" };
   }
-}
+};
 
 export const onLikeChannelPost = async (postid: string, likeid: string) => {
   try {
-    const user = await onAuthenticatedUser()
+    const user = await onAuthenticatedUser();
 
     const liked = await client.like.findFirst({
       where: {
         id: likeid,
         userId: user.id!,
       },
-    })
+    });
 
     if (liked) {
       await client.like.delete({
@@ -234,9 +234,9 @@ export const onLikeChannelPost = async (postid: string, likeid: string) => {
           id: likeid,
           userId: user.id,
         },
-      })
+      });
 
-      return { status: 200, message: "You unliked this post" }
+      return { status: 200, message: "You unliked this post" };
     }
 
     const like = await client.like.create({
@@ -245,16 +245,16 @@ export const onLikeChannelPost = async (postid: string, likeid: string) => {
         postId: postid,
         userId: user.id!,
       },
-    })
+    });
 
-    if (like) return { status: 200, message: "You liked this post" }
+    if (like) return { status: 200, message: "You liked this post" };
 
-    return { status: 404, message: "Post not found!" }
+    return { status: 404, message: "Post not found!" };
   } catch (error) {
-    console.log(error)
-    return { status: 400, message: "Something went wrong" }
+    console.log(error);
+    return { status: 400, message: "Something went wrong" };
   }
-}
+};
 
 export const onCreateNewComment = async (
   postid: string,
@@ -262,7 +262,7 @@ export const onCreateNewComment = async (
   commentid: string,
 ) => {
   try {
-    const user = await onAuthenticatedUser()
+    const user = await onAuthenticatedUser();
     const comment = await client.post.update({
       where: {
         id: postid,
@@ -276,14 +276,14 @@ export const onCreateNewComment = async (
           },
         },
       },
-    })
+    });
     if (comment) {
-      return { status: 200, message: "Comment successfull" }
+      return { status: 200, message: "Comment successfull" };
     }
   } catch (error) {
-    return { status: 400, message: "Something went wrong" }
+    return { status: 400, message: "Something went wrong" };
   }
-}
+};
 
 export const onCreateCommentReply = async (
   postid: string,
@@ -292,7 +292,7 @@ export const onCreateCommentReply = async (
   replyid: string,
 ) => {
   try {
-    const user = await onAuthenticatedUser()
+    const user = await onAuthenticatedUser();
     const reply = await client.comment.update({
       where: {
         id: commentid,
@@ -308,12 +308,12 @@ export const onCreateCommentReply = async (
           },
         },
       },
-    })
+    });
 
     if (reply) {
-      return { status: 200, message: "Reply posted" }
+      return { status: 200, message: "Reply posted" };
     }
   } catch (error) {
-    return { status: 400, message: "Oops something went wrong" }
+    return { status: 400, message: "Oops something went wrong" };
   }
-}
+};

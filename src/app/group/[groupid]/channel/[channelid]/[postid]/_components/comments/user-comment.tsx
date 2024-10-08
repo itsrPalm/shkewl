@@ -1,29 +1,29 @@
-import { Loader } from "@/components/global/loader"
-import { PostReply } from "@/components/global/post-reply"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Separator } from "@/components/ui/separator"
-import { useGetReplies } from "@/hooks/channels"
+import { Loader } from "@/components/global/loader";
+import { PostReply } from "@/components/global/post-reply";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
+import { useGetReplies } from "@/hooks/channels";
 
-import { Chat, Heart } from "@/icons"
-import { cn } from "@/lib/utils"
-import { User } from "lucide-react"
+import { Chat, Heart } from "@/icons";
+import { cn } from "@/lib/utils";
+import { User } from "lucide-react";
 
 type UserCommentProps = {
-  image: string
-  username: string
-  content: string
-  optimistic?: boolean
-  onReply?(): void
-  reply?: { comment?: string; reply: boolean }
-  id: string
-  postid: string
-  replyCount?: number
-  commentid?: string | null
-  replied?: boolean | null
-  activeComment?: string
-  onActiveComment?(): void
-  noReply?: boolean
-}
+  image: string;
+  username: string;
+  content: string;
+  optimistic?: boolean;
+  onReply?(): void;
+  reply?: { comment?: string; reply: boolean };
+  id: string;
+  postid: string;
+  replyCount?: number;
+  commentid?: string | null;
+  replied?: boolean | null;
+  activeComment?: string;
+  onActiveComment?(): void;
+  noReply?: boolean;
+};
 
 export const UserComment = ({
   image,
@@ -39,7 +39,7 @@ export const UserComment = ({
   onActiveComment,
   noReply,
 }: UserCommentProps) => {
-  const { data, isFetching } = useGetReplies(activeComment!)
+  const { data, isFetching } = useGetReplies(activeComment!);
 
   return (
     <div className={cn("flex gap-x-3", optimistic ? "opacity-50" : "")}>
@@ -117,5 +117,5 @@ export const UserComment = ({
         )}
       </div>
     </div>
-  )
-}
+  );
+};

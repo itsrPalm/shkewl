@@ -1,19 +1,19 @@
-import { useLikeChannelPost } from "@/hooks/channels"
-import { Like, Unlike } from "@/icons"
-import { cn } from "@/lib/utils"
-import { MessageCircle } from "lucide-react"
-import { v4 as uuidv4 } from "uuid"
+import { useLikeChannelPost } from "@/hooks/channels";
+import { Like, Unlike } from "@/icons";
+import { cn } from "@/lib/utils";
+import { MessageCircle } from "lucide-react";
+import { v4 as uuidv4 } from "uuid";
 
 type InteractionsProps = {
-  id: string
-  optimisitc?: boolean
-  userid?: string
-  likedUser?: string
-  likes: number
-  comments: number
-  likeid?: string
-  page?: boolean
-}
+  id: string;
+  optimisitc?: boolean;
+  userid?: string;
+  likedUser?: string;
+  likes: number;
+  comments: number;
+  likeid?: string;
+  page?: boolean;
+};
 
 export const Interactions = ({
   id,
@@ -25,7 +25,7 @@ export const Interactions = ({
   likeid,
   page,
 }: InteractionsProps) => {
-  const { mutate, isPending } = useLikeChannelPost(id)
+  const { mutate, isPending } = useLikeChannelPost(id);
   return (
     <div
       className={cn(
@@ -73,5 +73,5 @@ export const Interactions = ({
         </span>
       </div>
     </div>
-  )
-}
+  );
+};

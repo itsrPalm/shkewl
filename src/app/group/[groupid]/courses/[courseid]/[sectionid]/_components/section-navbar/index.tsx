@@ -1,16 +1,16 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import { useSectionNavBar } from "@/hooks/courses"
-import { Check } from "lucide-react"
+"use client";
+import { Button } from "@/components/ui/button";
+import { useSectionNavBar } from "@/hooks/courses";
+import { Check } from "lucide-react";
 
 type Props = {
-  sectionid: string
-}
+  sectionid: string;
+};
 
 const SectionNavBar = ({ sectionid }: Props) => {
-  const { data, mutate, isPending } = useSectionNavBar(sectionid)
+  const { data, mutate, isPending } = useSectionNavBar(sectionid);
 
-  if (data?.status !== 200) return <></>
+  if (data?.status !== 200) return <></>;
 
   return (
     <div className="flex justify-between p-5 overflow-y-auto items-center">
@@ -35,7 +35,7 @@ const SectionNavBar = ({ sectionid }: Props) => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SectionNavBar
+export default SectionNavBar;

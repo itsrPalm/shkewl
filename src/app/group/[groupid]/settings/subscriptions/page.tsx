@@ -1,9 +1,9 @@
-import { GroupSubscriptionForm } from "@/components/forms/subscription"
-import { Subscriptions } from "./_components/subscriptions"
+import { GroupSubscriptionForm } from "@/components/forms/subscription";
+import { Subscriptions } from "./_components/subscriptions";
 
 type Props = {
-  params: { groupid: string }
-}
+  params: { groupid: string };
+};
 
 const SubscriptionPage = ({ params }: Props) => {
   return (
@@ -14,7 +14,7 @@ const SubscriptionPage = ({ params }: Props) => {
         <Subscriptions groupid={params.groupid} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SubscriptionPage
+export default SubscriptionPage;

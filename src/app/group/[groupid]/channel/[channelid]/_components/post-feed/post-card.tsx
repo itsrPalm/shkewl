@@ -1,25 +1,25 @@
-import { HtmlParser } from "@/components/global/html-parser"
-import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { PostAuthor } from "./post-author"
-import { Interactions } from "./interactions"
+import { HtmlParser } from "@/components/global/html-parser";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { PostAuthor } from "./post-author";
+import { Interactions } from "./interactions";
 
 type PostCardProps = {
-  userimage?: string
-  username?: string
-  html: string
-  channelname: string
-  title: string
-  likes: number
-  comments: number
-  postid: string
-  likedUser?: string
-  userid?: string
-  likeid?: string
-  optimisitc?: boolean
-}
+  userimage?: string;
+  username?: string;
+  html: string;
+  channelname: string;
+  title: string;
+  likes: number;
+  comments: number;
+  postid: string;
+  likedUser?: string;
+  userid?: string;
+  likeid?: string;
+  optimisitc?: boolean;
+};
 
 export const PostCard = ({
   userimage,
@@ -35,7 +35,7 @@ export const PostCard = ({
   likeid,
   optimisitc,
 }: PostCardProps) => {
-  const pathname = usePathname()
+  const pathname = usePathname();
   return (
     <Card className="border-themeGray bg-[#1A1A1D] first-letter:rounded-2xl overflow-hidden">
       <CardContent className="p-3 flex flex-col gap-y-6 items-start">
@@ -62,5 +62,5 @@ export const PostCard = ({
         optimisitc={optimisitc}
       />
     </Card>
-  )
-}
+  );
+};

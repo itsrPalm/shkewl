@@ -1,28 +1,27 @@
-datasource db {
-  provider = "postgresql"
-  url = env("DATABASE_URL")
-  directUrl = env("DATABASE_URL")
-}
-
 generator client {
   provider = "prisma-client-js"
 }
 
-model User {
-  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  firstname String
-  lastname  String
-  createdAt DateTime @default(now())
-  clerkId   String   @unique
-  image     String?
-  stripeId  String?
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL")
+}
 
-  group      Group[]
-  membership Members[]
-  posts      Post[]
-  likes      Like[]
+model User {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  firstname  String
+  lastname   String
+  createdAt  DateTime  @default(now())
+  clerkId    String    @unique
+  image      String?
+  stripeId   String?
   comments   Comment[]
+  group      Group[]
+  likes      Like[]
+  membership Members[]
   message    Message[]
+  posts      Post[]
 }
 
 model Subscription {
@@ -30,8 +29,8 @@ model Subscription {
   createdAt DateTime @default(now())
   price     Int?
   active    Boolean  @default(false)
-  Group     Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
   groupId   String?  @db.Uuid
+  Group     Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
 }
 
 model Group {
@@ -44,26 +43,26 @@ model Group {
   jsonDescription String?
   htmlDescription String?
   icon            String?
-  member          Members[]
-  channel         Channel[]
   privacy         GROUP_PRIVACY  @default(PRIVATE)
   active          Boolean        @default(false)
   createdAt       DateTime       @default(now())
-  User            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId          String         @db.Uuid
-  courses         Course[]
-  affiliate       Affiliate?
   domain          String?
+  affiliate       Affiliate?
+  channel         Channel[]
+  courses         Course[]
+  User            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  member          Members[]
   subscription    Subscription[]
 }
 
 model Members {
   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  User      User?    @relation(fields: [userId], references: [id])
   userId    String?  @db.Uuid
-  Group     Group?   @relation(fields: [groupId], references: [id])
   groupId   String?  @db.Uuid
   createdAt DateTime @default(now())
+  Group     Group?   @relation(fields: [groupId], references: [id])
+  User      User?    @relation(fields: [userId], references: [id])
 
   @@index([userId, groupId])
 }
@@ -75,46 +74,45 @@ model Post {
   htmlContent String?
   jsonContent String?
   content     String
-  author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId    String    @db.Uuid
-  likes       Like[]
-  comments    Comment[]
-  channel     Channel   @relation(fields: [channelId], references: [id], onDelete: Cascade)
   channelId   String    @db.Uuid
+  comments    Comment[]
+  likes       Like[]
+  author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  channel     Channel   @relation(fields: [channelId], references: [id], onDelete: Cascade)
 }
 
 model Like {
   id        String   @id @db.Uuid
   createdAt DateTime @default(now())
-  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId    String   @db.Uuid
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String   @db.Uuid
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Comment {
   id        String    @id @db.Uuid
   createdAt DateTime  @default(now())
   content   String
-  post      Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId    String    @db.Uuid
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String    @db.Uuid
   replied   Boolean?  @default(false)
-  //self relation 1 to many for comments
-  reply     Comment[] @relation(name: "CommentToComment")
-  Comment   Comment?  @relation(name: "CommentToComment", fields: [commentId], references: [id])
   commentId String?   @db.Uuid
+  Comment   Comment?  @relation("CommentToComment", fields: [commentId], references: [id])
+  reply     Comment[] @relation("CommentToComment")
+  post      Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Channel {
   id        String   @id @db.Uuid
   name      String
   icon      String
-  posts     Post[]
   createdAt DateTime @default(now())
-  Group     Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
   groupId   String?  @db.Uuid
+  Group     Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  posts     Post[]
 }
 
 model Course {
@@ -125,18 +123,18 @@ model Course {
   privacy     String
   description String
   createdAt   DateTime @default(now())
-  Group       Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
   groupId     String?  @db.Uuid
+  Group       Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
   modules     Module[]
 }
 
 model Module {
   id        String    @id @db.Uuid
-  Course    Course?   @relation(fields: [courseId], references: [id], onDelete: Cascade)
   courseId  String?   @db.Uuid
   title     String
-  section   Section[]
   createdAt DateTime  @default(now())
+  Course    Course?   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  section   Section[]
 }
 
 model Section {
@@ -145,27 +143,27 @@ model Section {
   icon        String   @default("doc")
   complete    Boolean  @default(false)
   createdAt   DateTime @default(now())
-  Module      Module?  @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   moduleId    String?  @db.Uuid
   content     String?
   htmlContent String?
   JsonContent String?
+  Module      Module?  @relation(fields: [moduleId], references: [id], onDelete: Cascade)
 }
 
 model Affiliate {
   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  Group     Group?   @relation(fields: [groupId], references: [id])
   groupId   String?  @unique @db.Uuid
   createdAt DateTime @default(now())
+  Group     Group?   @relation(fields: [groupId], references: [id])
 }
 
 model Message {
   id         String   @id @db.Uuid
   message    String
   createdAt  DateTime @default(now())
-  sender     User?    @relation(fields: [senderid], references: [id], onDelete: Cascade)
   senderid   String?  @db.Uuid
   recieverId String?  @db.Uuid
+  sender     User?    @relation(fields: [senderid], references: [id], onDelete: Cascade)
 }
 
 enum GROUP_PRIVACY {

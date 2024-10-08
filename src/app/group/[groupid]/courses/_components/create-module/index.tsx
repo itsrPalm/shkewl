@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { GlobalAccordion } from "@/components/global/accordion"
-import { Button } from "@/components/ui/button"
-import { useCreateModule } from "@/hooks/courses"
-import { Plus, PlusCircle } from "lucide-react"
+import { GlobalAccordion } from "@/components/global/accordion";
+import { Button } from "@/components/ui/button";
+import { useCreateModule } from "@/hooks/courses";
+import { Plus, PlusCircle } from "lucide-react";
 
 type CreateCourseModuleProps = {
-  courseId: string
-  groupid: string
-}
+  courseId: string;
+  groupid: string;
+};
 
 export const CreateCourseModule = ({
   courseId,
@@ -17,10 +17,10 @@ export const CreateCourseModule = ({
   const { variables, isPending, onCreateModule, data } = useCreateModule(
     courseId,
     groupid,
-  )
+  );
 
   if (!data?.groupOwner) {
-    return <></>
+    return <></>;
   }
 
   return (
@@ -42,5 +42,5 @@ export const CreateCourseModule = ({
         </GlobalAccordion>
       )}
     </div>
-  )
-}
+  );
+};

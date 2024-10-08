@@ -1,25 +1,28 @@
-import { onAuthenticatedUser } from "@/actions/auth"
-import { onGetAllUserMessages, onGetUserFromMembership } from "@/actions/groups"
-import { HuddlesForm } from "@/components/forms/huddles"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { onAuthenticatedUser } from "@/actions/auth";
+import {
+  onGetAllUserMessages,
+  onGetUserFromMembership,
+} from "@/actions/groups";
+import { HuddlesForm } from "@/components/forms/huddles";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
-} from "@tanstack/react-query"
-import { User } from "lucide-react"
-import { ChatWindow } from "../_components/chat"
+} from "@tanstack/react-query";
+import { User } from "lucide-react";
+import { ChatWindow } from "../_components/chat";
 
 const MemberChatPage = async ({ params }: { params: { chatid: string } }) => {
-  const query = new QueryClient()
-  const member = await onGetUserFromMembership(params.chatid)
+  const query = new QueryClient();
+  const member = await onGetUserFromMembership(params.chatid);
 
   await query.prefetchQuery({
     queryKey: ["user-messages"],
     queryFn: () => onGetAllUserMessages(params.chatid),
-  })
+  });
 
-  const user = await onAuthenticatedUser()
+  const user = await onAuthenticatedUser();
 
   return (
     <HydrationBoundary state={dehydrate(query)}>
@@ -41,7 +44,7 @@ const MemberChatPage = async ({ params }: { params: { chatid: string } }) => {
         <HuddlesForm recieverid={member?.member?.User?.id!} />
       </div>
     </HydrationBoundary>
-  )
-}
+  );
+};
 
-export default MemberChatPage
+export default MemberChatPage;

@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { z } from "zod";
 
 export const SignUpSchema = z.object({
   firstname: z
@@ -18,4 +18,4 @@ export const SignUpSchema = z.object({
       (value) => /^[a-zA-Z0-9_.-]*$/.test(value ?? ""),
       "password should contain only alphabets and numbers",
     ),
-})
+});

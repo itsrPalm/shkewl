@@ -1,21 +1,21 @@
-"use client"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { GROUPLE_CONSTANTS } from "@/constants"
-import Link from "next/link"
-import { UseFormRegister } from "react-hook-form"
-import "swiper/css/bundle"
-import { SwiperProps, SwiperSlide } from "swiper/react"
-import { Slider } from "../slider"
-import { GroupListItem } from "./list-item"
+"use client";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { SHKEWL_CONSTANTS } from "@/constants";
+import Link from "next/link";
+import { UseFormRegister } from "react-hook-form";
+import "swiper/css/bundle";
+import { SwiperProps, SwiperSlide } from "swiper/react";
+import { Slider } from "../slider";
+import { GroupListItem } from "./list-item";
 
 type Props = {
-  overlay?: boolean
-  label?: string
-  register?: UseFormRegister<any>
-  selected?: string
-  route?: boolean
-} & SwiperProps
+  overlay?: boolean;
+  label?: string;
+  register?: UseFormRegister<any>;
+  selected?: string;
+  route?: boolean;
+} & SwiperProps;
 
 export const GroupListSlider = ({
   overlay,
@@ -35,7 +35,7 @@ export const GroupListSlider = ({
       overlay={overlay}
       {...rest}
     >
-      {GROUPLE_CONSTANTS.groupList.map((item, i) => (
+      {SHKEWL_CONSTANTS.groupList.map((item, i) => (
         <SwiperSlide key={item.id} className="content-width-slide ">
           {!register ? (
             route ? (
@@ -64,5 +64,5 @@ export const GroupListSlider = ({
         </SwiperSlide>
       ))}
     </Slider>
-  )
-}
+  );
+};

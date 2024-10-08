@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Bell } from "@/icons"
-import GlassSheet from "../glass-sheet"
+import { Bell } from "@/icons";
+import GlassSheet from "../glass-sheet";
 
 export const Notification = () => {
   return (
@@ -14,5 +14,5 @@ export const Notification = () => {
     >
       <div>yo</div>
     </GlassSheet>
-  )
-}
+  );
+};

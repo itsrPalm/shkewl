@@ -1,18 +1,18 @@
-"use client"
-import { JoinButton } from "@/app/(discover)/about/_components/join-button"
-import { Card } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { useGroupInfo } from "@/hooks/groups"
-import { cn, truncateString } from "@/lib/utils"
+"use client";
+import { JoinButton } from "@/app/(discover)/about/_components/join-button";
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { useGroupInfo } from "@/hooks/groups";
+import { cn, truncateString } from "@/lib/utils";
 
 type Props = {
-  light?: boolean
-  groupid?: string
-  userid?: string
-}
+  light?: boolean;
+  groupid?: string;
+  userid?: string;
+};
 
 const GroupSideWidget = ({ groupid, light, userid }: Props) => {
-  const { group } = useGroupInfo()
+  const { group } = useGroupInfo();
 
   return (
     <Card
@@ -40,7 +40,7 @@ const GroupSideWidget = ({ groupid, light, userid }: Props) => {
         />
       )}
     </Card>
-  )
-}
+  );
+};
 
-export default GroupSideWidget
+export default GroupSideWidget;

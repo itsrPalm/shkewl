@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { useChatWindow } from "@/hooks/groups"
-import { useAppSelector } from "@/redux/store"
-import { ChatBubble } from "../chat-bubble"
+import { useChatWindow } from "@/hooks/groups";
+import { useAppSelector } from "@/redux/store";
+import { ChatBubble } from "../chat-bubble";
 
 type ChatWindowProps = {
-  recieverid: string
-  userid: string
-}
+  recieverid: string;
+  userid: string;
+};
 
 export const ChatWindow = ({ recieverid, userid }: ChatWindowProps) => {
-  const { messageWindowRef } = useChatWindow(recieverid)
-  const { chat } = useAppSelector((state) => state.chatReducer)
+  const { messageWindowRef } = useChatWindow(recieverid);
+  const { chat } = useAppSelector((state) => state.chatReducer);
 
   return (
     <div
@@ -22,5 +22,5 @@ export const ChatWindow = ({ recieverid, userid }: ChatWindowProps) => {
         <ChatBubble key={c.id} {...c} userid={userid} />
       ))}
     </div>
-  )
-}
+  );
+};

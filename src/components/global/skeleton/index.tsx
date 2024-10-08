@@ -1,8 +1,8 @@
-import { Skeleton as SkeletonUI } from "@/components/ui/skeleton"
+import { Skeleton as SkeletonUI } from "@/components/ui/skeleton";
 
 type Props = {
-  element: "CARD" | "POST"
-}
+  element: "CARD" | "POST";
+};
 
 const Skeleton = ({ element }: Props) => {
   switch (element) {
@@ -13,7 +13,7 @@ const Skeleton = ({ element }: Props) => {
           <SkeletonUI className="h-[40px] w-7/12 rounded-md ml-5 bg-[#202020]" />
           <SkeletonUI className="h-[30px] w-4/12 rounded-md ml-5 bg-[#202020]" />
         </div>
-      )
+      );
 
     case "POST":
       return (
@@ -32,11 +32,11 @@ const Skeleton = ({ element }: Props) => {
             <SkeletonUI className="h-4 w-20 rounded-md bg-[#202020]" />
           </div>
         </div>
-      )
+      );
 
     default:
-      return <></>
+      return <></>;
   }
-}
+};
 
-export default Skeleton
+export default Skeleton;

@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 type GroupListItemProps = {
-  icon: JSX.Element
-  label: string
-  selected?: string
-}
+  icon: JSX.Element;
+  label: string;
+  selected?: string;
+};
 
 export const GroupListItem = ({
   icon,
@@ -23,5 +23,5 @@ export const GroupListItem = ({
       {icon}
       {label}
     </div>
-  )
-}
+  );
+};

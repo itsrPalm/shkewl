@@ -1,15 +1,15 @@
-import InfiniteScrollObserver from "@/components/global/infinite-scroll"
-import { Loader } from "@/components/global/loader"
-import { NoResult } from "@/components/global/search/no-results"
-import { GroupStateProps } from "@/redux/slices/search-slice"
-import GroupCard from "./group-card"
-import PaginatedGroups from "./paginated-groups"
+import InfiniteScrollObserver from "@/components/global/infinite-scroll";
+import { Loader } from "@/components/global/loader";
+import { NoResult } from "@/components/global/search/no-results";
+import { GroupStateProps } from "@/redux/slices/search-slice";
+import GroupCard from "./group-card";
+import PaginatedGroups from "./paginated-groups";
 
 type Props = {
-  searching: boolean
-  data: GroupStateProps[]
-  query?: string
-}
+  searching: boolean;
+  data: GroupStateProps[];
+  query?: string;
+};
 
 export const SearchGroups = ({ data, searching, query }: Props) => {
   return (
@@ -32,5 +32,5 @@ export const SearchGroups = ({ data, searching, query }: Props) => {
         </InfiniteScrollObserver>
       )}
     </div>
-  )
-}
+  );
+};

@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useAppSelector } from "@/redux/store"
-import { PostCard } from "../post-feed/post-card"
+import { useAppSelector } from "@/redux/store";
+import { PostCard } from "../post-feed/post-card";
 
 type PaginatedGroupsProps = {
-  userid: string
-}
+  userid: string;
+};
 
 export const PaginatedPosts = ({ userid }: PaginatedGroupsProps) => {
-  const { data } = useAppSelector((state) => state.infiniteScrollReducer)
+  const { data } = useAppSelector((state) => state.infiniteScrollReducer);
 
   return data.map((data: any) => (
     <PostCard
@@ -25,5 +25,5 @@ export const PaginatedPosts = ({ userid }: PaginatedGroupsProps) => {
       postid={data.id}
       userid={userid}
     />
-  ))
-}
+  ));
+};

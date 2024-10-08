@@ -1,6 +1,6 @@
-import { Empty } from "@/icons"
-import { RefreshCcw } from "lucide-react"
-import Link from "next/link"
+import { Empty } from "@/icons";
+import { RefreshCcw } from "lucide-react";
+import Link from "next/link";
 
 export const NoResult = () => {
   return (
@@ -17,5 +17,5 @@ export const NoResult = () => {
         <p className="text-sm text-themeTextGray">0 Results Found...</p>
       </div>
     </div>
-  )
-}
+  );
+};

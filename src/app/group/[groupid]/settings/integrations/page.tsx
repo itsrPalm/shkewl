@@ -1,19 +1,19 @@
-import { onGetStripeIntegration } from "@/actions/payments"
-import { Card, CardContent, CardDescription } from "@/components/ui/card"
-import { INTEGRATION_LIST_ITEMS } from "@/constants/menus"
+import { onGetStripeIntegration } from "@/actions/payments";
+import { Card, CardContent, CardDescription } from "@/components/ui/card";
+import { INTEGRATION_LIST_ITEMS } from "@/constants/menus";
 
-import Image from "next/image"
-import IntegrationTrigger from "./_components/integration-trigger"
+import Image from "next/image";
+import IntegrationTrigger from "./_components/integration-trigger";
 
 const IntegrationsPage = async ({
   params,
 }: {
-  params: { groupid: string }
+  params: { groupid: string };
 }) => {
-  const payment = await onGetStripeIntegration()
+  const payment = await onGetStripeIntegration();
   const connections = {
     stripe: payment ? true : false,
-  }
+  };
   return (
     <div className="flex-1 h-0 grid grid-cols-1 p-5 content-start lg:grid-cols-3 xl:grid-cols-4 gap-3">
       {INTEGRATION_LIST_ITEMS.map((item) => (
@@ -45,7 +45,7 @@ const IntegrationsPage = async ({
         </Card>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default IntegrationsPage
+export default IntegrationsPage;

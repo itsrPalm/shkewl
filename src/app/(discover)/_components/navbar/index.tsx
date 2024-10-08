@@ -1,17 +1,19 @@
-import { onAuthenticatedUser } from "@/actions/auth"
-import { onGetUserGroups } from "@/actions/groups"
+import { onAuthenticatedUser } from "@/actions/auth";
+import { onGetUserGroups } from "@/actions/groups";
 
-import GlassSheet from "@/components/global/glass-sheet"
-import { UserWidget } from "@/components/global/user-widget"
-import { Button } from "@/components/ui/button"
-import { CheckBadge, Logout } from "@/icons"
-import { MenuIcon } from "lucide-react"
-import Link from "next/link"
-import { GroupDropDown } from "./group-dropdown"
+import GlassSheet from "@/components/global/glass-sheet";
+import { UserWidget } from "@/components/global/user-widget";
+import { Button } from "@/components/ui/button";
+import { CheckBadge, Logout } from "@/icons";
+import { MenuIcon } from "lucide-react";
+import Link from "next/link";
+import { GroupDropDown } from "./group-dropdown";
 
 export const Navbar = async () => {
-  const user = await onAuthenticatedUser()
-  const groups = await onGetUserGroups(user.id!)
+  const user = await onAuthenticatedUser();
+  const groups = await onGetUserGroups(user.id!);
+
+  console.log("USER & GROUPS[NAVBAR]: \n", user, "\n", groups);
 
   return (
     <div className="flex px-5 py-3 items-center bg-themeBlack border-b-[1px] border-themeDarkGray fixed z-50 w-full bg-clip-padding backdrop--blur__safari backdrop-filter backdrop-blur-2xl bg-opacity-60">
@@ -57,5 +59,5 @@ export const Navbar = async () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};

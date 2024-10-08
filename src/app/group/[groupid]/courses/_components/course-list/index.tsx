@@ -1,18 +1,18 @@
-"use client"
-import { Card } from "@/components/ui/card"
-import { useCourses } from "@/hooks/courses"
-import { truncateString } from "@/lib/utils"
-import Link from "next/link"
+"use client";
+import { Card } from "@/components/ui/card";
+import { useCourses } from "@/hooks/courses";
+import { truncateString } from "@/lib/utils";
+import Link from "next/link";
 
 type Props = {
-  groupid: string
-}
+  groupid: string;
+};
 
 const CourseList = ({ groupid }: Props) => {
-  const { data } = useCourses(groupid)
+  const { data } = useCourses(groupid);
 
   if (data?.status !== 200) {
-    return <></>
+    return <></>;
   }
 
   return data.courses?.map((course) => (
@@ -31,7 +31,7 @@ const CourseList = ({ groupid }: Props) => {
         </div>
       </Card>
     </Link>
-  ))
-}
+  ));
+};
 
-export default CourseList
+export default CourseList;

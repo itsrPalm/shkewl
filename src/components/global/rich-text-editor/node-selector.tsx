@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
+} from "@/components/ui/popover";
 import {
   Check,
   CheckSquare,
@@ -16,20 +16,20 @@ import {
   LucideIcon,
   TextIcon,
   TextQuote,
-} from "lucide-react"
-import { EditorBubbleItem, useEditor } from "novel"
+} from "lucide-react";
+import { EditorBubbleItem, useEditor } from "novel";
 
 type Props = {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-}
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+};
 
 export type SelectorItem = {
-  name: string
-  icon: LucideIcon
-  command: (editor: ReturnType<typeof useEditor>["editor"]) => void
-  isActive: (editor: ReturnType<typeof useEditor>["editor"]) => boolean
-}
+  name: string;
+  icon: LucideIcon;
+  command: (editor: ReturnType<typeof useEditor>["editor"]) => void;
+  isActive: (editor: ReturnType<typeof useEditor>["editor"]) => boolean;
+};
 
 const items: SelectorItem[] = [
   {
@@ -101,15 +101,15 @@ const items: SelectorItem[] = [
     command: (editor: any) => editor.chain().focus().toggleCodeBlock().run(),
     isActive: (editor: any) => editor.isActive("codeBlock"),
   },
-]
+];
 
 const NodeSelector = ({ onOpenChange, open }: Props) => {
-  const { editor } = useEditor()
-  if (!editor) return null
+  const { editor } = useEditor();
+  if (!editor) return null;
 
   const activeItem = items.filter((item) => item.isActive(editor)).pop() ?? {
     name: "Multiple",
-  }
+  };
 
   return (
     <Popover modal={true} open={open} onOpenChange={onOpenChange}>
@@ -127,8 +127,8 @@ const NodeSelector = ({ onOpenChange, open }: Props) => {
           <EditorBubbleItem
             key={index}
             onSelect={(editor) => {
-              item.command(editor)
-              onOpenChange(false)
+              item.command(editor);
+              onOpenChange(false);
             }}
             className="flex cursor-pointer items-center justify-between rounded-sm px-2 py-1 text-sm hover:bg-accent"
           >
@@ -143,7 +143,7 @@ const NodeSelector = ({ onOpenChange, open }: Props) => {
         ))}
       </PopoverContent>
     </Popover>
-  )
-}
+  );
+};
 
-export default NodeSelector
+export default NodeSelector;

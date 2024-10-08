@@ -1,22 +1,22 @@
-import { onGetDomainConfig } from "@/actions/groups"
-import { CustomDomainForm } from "@/components/forms/domain"
-import { Card, CardDescription, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
+import { onGetDomainConfig } from "@/actions/groups";
+import { CustomDomainForm } from "@/components/forms/domain";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
-} from "@tanstack/react-query"
+} from "@tanstack/react-query";
 
-type Props = { params: { groupid: string } }
+type Props = { params: { groupid: string } };
 
 const DomainConfigPage = async ({ params }: Props) => {
-  const client = new QueryClient()
+  const client = new QueryClient();
 
   await client.prefetchQuery({
     queryKey: ["domain-config"],
     queryFn: () => onGetDomainConfig(params.groupid),
-  })
+  });
 
   return (
     <HydrationBoundary state={dehydrate(client)}>
@@ -56,7 +56,7 @@ const DomainConfigPage = async ({ params }: Props) => {
         </Card>
       </div>
     </HydrationBoundary>
-  )
-}
+  );
+};
 
-export default DomainConfigPage
+export default DomainConfigPage;

@@ -1,19 +1,19 @@
-import { FormGenerator } from "@/components/global/form-generator"
-import { Loader } from "@/components/global/loader"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useMediaGallery } from "@/hooks/groups"
-import { BadgePlus } from "@/icons"
-import { ErrorMessage } from "@hookform/error-message"
+import { FormGenerator } from "@/components/global/form-generator";
+import { Loader } from "@/components/global/loader";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useMediaGallery } from "@/hooks/groups";
+import { BadgePlus } from "@/icons";
+import { ErrorMessage } from "@hookform/error-message";
 
 type Props = {
-  groupid: string
-}
+  groupid: string;
+};
 
 const MediaGalleryForm = ({ groupid }: Props) => {
   const { errors, register, onUpdateGallery, isPending } =
-    useMediaGallery(groupid)
+    useMediaGallery(groupid);
 
   return (
     <form onSubmit={onUpdateGallery} className="flex flex-col gap-y-3">
@@ -53,7 +53,7 @@ const MediaGalleryForm = ({ groupid }: Props) => {
         <Loader loading={isPending}>Upload</Loader>
       </Button>
     </form>
-  )
-}
+  );
+};
 
-export default MediaGalleryForm
+export default MediaGalleryForm;

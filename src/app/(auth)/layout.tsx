@@ -1,16 +1,17 @@
-import { onAuthenticatedUser } from "@/actions/auth"
-import BackdropGradient from "@/components/global/backdrop-gradient"
-import GlassCard from "@/components/global/glass-card"
-import { redirect } from "next/navigation"
+import { onAuthenticatedUser } from "@/actions/auth";
+import BackdropGradient from "@/components/global/backdrop-gradient";
+import GlassCard from "@/components/global/glass-card";
+import { redirect } from "next/navigation";
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 const AuthLayout = async ({ children }: Props) => {
-  const user = await onAuthenticatedUser()
+  const user = await onAuthenticatedUser();
+  console.log("USER[SIGNUPLAYOUT]: ", user);
 
-  if (user.status === 200) redirect("/callback/sign-in")
+  if (user.status === 200) redirect("/callback/sign-in");
 
   return (
     <div className="container h-screen flex justify-center items-center">
@@ -26,10 +27,10 @@ const AuthLayout = async ({ children }: Props) => {
         </BackdropGradient>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AuthLayout
+export default AuthLayout;
 
 // import { onAuthenticatedUser } from "@/actions/auth"
 // import BackdropGradient from "@/components/global/backdrop-gradient"

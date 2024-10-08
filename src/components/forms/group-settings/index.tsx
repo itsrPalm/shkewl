@@ -1,16 +1,16 @@
-"use client"
-import GroupCard from "@/app/(discover)/explore/_components/group-card"
-import { FormGenerator } from "@/components/global/form-generator"
-import { Loader } from "@/components/global/loader"
-import BlockTextEditor from "@/components/global/rich-text-editor"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useGroupSettings } from "@/hooks/groups"
+"use client";
+import GroupCard from "@/app/(discover)/explore/_components/group-card";
+import { FormGenerator } from "@/components/global/form-generator";
+import { Loader } from "@/components/global/loader";
+import BlockTextEditor from "@/components/global/rich-text-editor";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useGroupSettings } from "@/hooks/groups";
 
 type Props = {
-  groupId: string
-}
+  groupId: string;
+};
 
 const GroupSettingsForm = ({ groupId }: Props) => {
   const {
@@ -25,8 +25,8 @@ const GroupSettingsForm = ({ groupId }: Props) => {
     setJsonDescription,
     setOnDescription,
     onDescription,
-  } = useGroupSettings(groupId)
-  console.log(data?.group, onJsonDescription)
+  } = useGroupSettings(groupId);
+  console.log(data?.group, onJsonDescription);
   return (
     <form
       className="flex flex-col h-full w-full items-start gap-y-5"
@@ -113,7 +113,7 @@ const GroupSettingsForm = ({ groupId }: Props) => {
         </Button>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default GroupSettingsForm
+export default GroupSettingsForm;

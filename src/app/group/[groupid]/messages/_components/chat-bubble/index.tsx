@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 type ChatBubbeProps = {
-  senderid: string | null
-  createdAt: Date
-  message: string
-  userid: string
-}
+  senderid: string | null;
+  createdAt: Date;
+  message: string;
+  userid: string;
+};
 
 export const ChatBubble = ({
   senderid,
@@ -32,5 +32,5 @@ export const ChatBubble = ({
         )}
       </p>
     </div>
-  )
-}
+  );
+};

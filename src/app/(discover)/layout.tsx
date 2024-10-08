@@ -1,8 +1,8 @@
-import { Navbar } from "./_components/navbar"
+import { Navbar } from "./_components/navbar";
 
 type ExploreLayoutProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 const DiscoverLayout = ({ children }: ExploreLayoutProps) => {
   return (
@@ -11,7 +11,7 @@ const DiscoverLayout = ({ children }: ExploreLayoutProps) => {
       <Navbar />
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default DiscoverLayout
+export default DiscoverLayout;

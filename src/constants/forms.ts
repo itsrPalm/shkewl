@@ -1,12 +1,12 @@
 export type AuthFormProps = {
-  id: string
-  type: "email" | "text" | "password"
-  inputType: "select" | "input"
-  options?: { value: string; label: string; id: string }[]
-  label?: string
-  placeholder: string
-  name: string
-}
+  id: string;
+  type: "email" | "text" | "password";
+  inputType: "select" | "input";
+  options?: { value: string; label: string; id: string }[];
+  label?: string;
+  placeholder: string;
+  name: string;
+};
 export const SIGN_UP_FORM: AuthFormProps[] = [
   {
     id: "1",
@@ -36,7 +36,7 @@ export const SIGN_UP_FORM: AuthFormProps[] = [
     name: "password",
     type: "password",
   },
-]
+];
 
 export const SIGN_IN_FORM: AuthFormProps[] = [
   {
@@ -53,4 +53,4 @@ export const SIGN_IN_FORM: AuthFormProps[] = [
     name: "password",
     type: "password",
   },
-]
+];

@@ -1,10 +1,10 @@
-import { AuthenticateWithRedirectCallback } from "@clerk/nextjs"
+import { AuthenticateWithRedirectCallback } from "@clerk/nextjs";
 
 const CallBackPage = () => {
-  return <AuthenticateWithRedirectCallback />
-}
+  return <AuthenticateWithRedirectCallback />;
+};
 
-export default CallBackPage
+export default CallBackPage;
 
 // import { AuthenticateWithRedirectCallback } from "@clerk/nextjs"
 

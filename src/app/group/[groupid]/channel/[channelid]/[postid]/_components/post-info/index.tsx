@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import { HtmlParser } from "@/components/global/html-parser"
+import { HtmlParser } from "@/components/global/html-parser";
 
-import { NoResult } from "@/components/global/search/no-results"
-import { useGetPost } from "@/hooks/channels"
-import { Interactions } from "../../../_components/post-feed/interactions"
-import { PostAuthor } from "../../../_components/post-feed/post-author"
+import { NoResult } from "@/components/global/search/no-results";
+import { useGetPost } from "@/hooks/channels";
+import { Interactions } from "../../../_components/post-feed/interactions";
+import { PostAuthor } from "../../../_components/post-feed/post-author";
 
 type PostInfoProps = {
-  id: string
-}
+  id: string;
+};
 
 export const PostInfo = ({ id }: PostInfoProps) => {
-  const { data } = useGetPost(id)
+  const { data } = useGetPost(id);
 
   if (data?.status !== 200 || !data)
     return (
       <div>
         <NoResult />
       </div>
-    )
+    );
 
   return (
     <div className="flex flex-col gap-y-5">
@@ -50,5 +50,5 @@ export const PostInfo = ({ id }: PostInfoProps) => {
         comments={data.post?._count.comments!}
       />
     </div>
-  )
-}
+  );
+};

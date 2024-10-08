@@ -2,18 +2,18 @@ import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { RefObject } from "react"
+} from "@/components/ui/accordion";
+import { RefObject } from "react";
 
 type GlobalAccordionProps = {
-  id: string
-  title: string
-  ref?: RefObject<HTMLButtonElement>
-  onEdit?(): void
-  edit?: boolean
-  editable?: React.ReactNode
-  children: React.ReactNode
-}
+  id: string;
+  title: string;
+  ref?: RefObject<HTMLButtonElement>;
+  onEdit?(): void;
+  edit?: boolean;
+  editable?: React.ReactNode;
+  children: React.ReactNode;
+};
 
 export const GlobalAccordion = ({
   title,
@@ -37,5 +37,5 @@ export const GlobalAccordion = ({
         {children}
       </AccordionItem>
     </Accordion>
-  )
-}
+  );
+};

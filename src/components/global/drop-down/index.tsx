@@ -1,17 +1,17 @@
-"use client"
+"use client";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/popover";
+import { Separator } from "@/components/ui/separator";
 
 type DropDownProps = {
-  title: string
-  trigger: JSX.Element
-  children: React.ReactNode
-  ref?: React.RefObject<HTMLButtonElement>
-}
+  title: string;
+  trigger: JSX.Element;
+  children: React.ReactNode;
+  ref?: React.RefObject<HTMLButtonElement>;
+};
 
 export const DropDown = ({ trigger, title, children, ref }: DropDownProps) => {
   return (
@@ -25,5 +25,5 @@ export const DropDown = ({ trigger, title, children, ref }: DropDownProps) => {
         {children}
       </PopoverContent>
     </Popover>
-  )
-}
+  );
+};

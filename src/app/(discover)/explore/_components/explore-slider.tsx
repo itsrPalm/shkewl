@@ -1,26 +1,26 @@
-import { Slider } from "@/components/global/slider"
-import { useExploreSlider, useGroupList } from "@/hooks/groups"
-import { useAppSelector } from "@/redux/store"
-import { SwiperSlide } from "swiper/react"
-import GroupCard from "./group-card"
-import Skeleton from "@/components/global/skeleton"
+import { Slider } from "@/components/global/slider";
+import { useExploreSlider, useGroupList } from "@/hooks/groups";
+import { useAppSelector } from "@/redux/store";
+import { SwiperSlide } from "swiper/react";
+import GroupCard from "./group-card";
+import Skeleton from "@/components/global/skeleton";
 
 type Props = {
-  query: string
-  label: string
-  text: string
-}
+  query: string;
+  label: string;
+  text: string;
+};
 
 const ExploreSlider = ({ label, query, text }: Props) => {
-  const { groups, status } = useGroupList(query)
+  const { groups, status } = useGroupList(query);
   const {
     refetch,
     isFetching,
     data: fetchedData,
     onLoadSlider,
-  } = useExploreSlider(query, groups && groups.length)
+  } = useExploreSlider(query, groups && groups.length);
 
-  const { data } = useAppSelector((state) => state.infiniteScrollReducer)
+  const { data } = useAppSelector((state) => state.infiniteScrollReducer);
 
   return (
     status === 200 &&
@@ -84,7 +84,7 @@ const ExploreSlider = ({ label, query, text }: Props) => {
         </Slider>
       </div>
     )
-  )
-}
+  );
+};
 
-export default ExploreSlider
+export default ExploreSlider;

@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { Input } from "@/components/ui/input"
-import { useSearch } from "@/hooks/groups"
-import { cn } from "@/lib/utils"
-import { SearchIcon } from "lucide-react"
+import { Input } from "@/components/ui/input";
+import { useSearch } from "@/hooks/groups";
+import { cn } from "@/lib/utils";
+import { SearchIcon } from "lucide-react";
 
 type Props = {
-  className?: string
-  inputStyle?: string
-  placeholder?: string
-  searchType: "GROUPS" | "POSTS"
-  iconStyle?: string
-  glass?: boolean
-}
+  className?: string;
+  inputStyle?: string;
+  placeholder?: string;
+  searchType: "GROUPS" | "POSTS";
+  iconStyle?: string;
+  glass?: boolean;
+};
 
 const Search = ({
   searchType,
@@ -22,7 +22,7 @@ const Search = ({
   inputStyle,
   placeholder,
 }: Props) => {
-  const { query, onSearchQuery } = useSearch(searchType)
+  const { query, onSearchQuery } = useSearch(searchType);
 
   return (
     <div
@@ -42,7 +42,7 @@ const Search = ({
         type="text"
       />
     </div>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

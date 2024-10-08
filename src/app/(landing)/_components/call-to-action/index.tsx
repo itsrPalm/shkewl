@@ -1,9 +1,9 @@
-import GradientText from "@/components/global/gradient-text"
-import { Button } from "@/components/ui/button"
-import { BadgePlus } from "@/icons"
-import Link from "next/link"
+import GradientText from "@/components/global/gradient-text";
+import { Button } from "@/components/ui/button";
+import { BadgePlus } from "@/icons";
+import Link from "next/link";
 
-type Props = {}
+type Props = {};
 
 const CallToAction = (props: Props) => {
   return (
@@ -36,7 +36,7 @@ const CallToAction = (props: Props) => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CallToAction
+export default CallToAction;

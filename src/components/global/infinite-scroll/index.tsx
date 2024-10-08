@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useInfiniteScroll } from "@/hooks/infinite-scroll"
-import Skeleton from "../skeleton"
+import { useInfiniteScroll } from "@/hooks/infinite-scroll";
+import Skeleton from "../skeleton";
 
 type Props = {
-  action: "GROUPS" | "POSTS"
-  children: React.ReactNode
-  identifier: string
-  paginate: number
-  search?: boolean
-  loading?: "POST"
-}
+  action: "GROUPS" | "POSTS";
+  children: React.ReactNode;
+  identifier: string;
+  paginate: number;
+  search?: boolean;
+  loading?: "POST";
+};
 
 const InfiniteScrollObserver = ({
   action,
@@ -25,7 +25,7 @@ const InfiniteScrollObserver = ({
     identifier,
     paginate,
     search,
-  )
+  );
 
   return (
     <>
@@ -34,7 +34,7 @@ const InfiniteScrollObserver = ({
         {isFetching && <Skeleton element={loading || "CARD"} />}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default InfiniteScrollObserver
+export default InfiniteScrollObserver;

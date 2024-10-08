@@ -1,14 +1,14 @@
-import { Card } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
-import { User } from "lucide-react"
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { User } from "lucide-react";
 
 type SubscriptionCardProps = {
-  optimisitc?: boolean
-  price: string
-  members: string
-  onClick?(): void
-  active?: boolean
-}
+  optimisitc?: boolean;
+  price: string;
+  members: string;
+  onClick?(): void;
+  active?: boolean;
+};
 
 export const SubscriptionCard = ({
   optimisitc,
@@ -32,5 +32,5 @@ export const SubscriptionCard = ({
         <p>{members} Members</p>
       </div>
     </Card>
-  )
-}
+  );
+};

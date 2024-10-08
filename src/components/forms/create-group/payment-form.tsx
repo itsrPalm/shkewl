@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { FormGenerator } from "@/components/global/form-generator"
-import { Loader } from "@/components/global/loader"
-import { Button } from "@/components/ui/button"
-import { usePayments } from "@/hooks/payment"
-import { ErrorMessage } from "@hookform/error-message"
-import { CardElement } from "@stripe/react-stripe-js"
-import dynamic from "next/dynamic"
-import Link from "next/link"
+import { FormGenerator } from "@/components/global/form-generator";
+import { Loader } from "@/components/global/loader";
+import { Button } from "@/components/ui/button";
+import { usePayments } from "@/hooks/payment";
+import { ErrorMessage } from "@hookform/error-message";
+import { CardElement } from "@stripe/react-stripe-js";
+import dynamic from "next/dynamic";
+import Link from "next/link";
 
 type Props = {
-  userId: string
-  affiliate: boolean
-  stripeId?: string
-}
+  userId: string;
+  affiliate: boolean;
+  stripeId?: string;
+};
 
 const GroupList = dynamic(
   () =>
@@ -23,7 +23,7 @@ const GroupList = dynamic(
   {
     ssr: false,
   },
-)
+);
 
 const PaymentForm = ({ affiliate, userId, stripeId }: Props) => {
   const {
@@ -33,7 +33,7 @@ const PaymentForm = ({ affiliate, userId, stripeId }: Props) => {
     errors,
     isCategory,
     creatingIntent,
-  } = usePayments(userId, affiliate)
+  } = usePayments(userId, affiliate);
 
   return (
     <Loader loading={creatingIntent}>
@@ -99,7 +99,7 @@ const PaymentForm = ({ affiliate, userId, stripeId }: Props) => {
         </div>
       </form>
     </Loader>
-  )
-}
+  );
+};
 
-export default PaymentForm
+export default PaymentForm;

@@ -11,23 +11,23 @@ import {
   IDuotoneBlack,
   PersonalDevelopment,
   ZapDouToneBlack,
-} from "@/icons"
+} from "@/icons";
 
 export type MenuProps = {
-  id: number
-  label: string
-  icon: JSX.Element
-  path: string
-  section?: boolean
-  integration?: boolean
-}
+  id: number;
+  label: string;
+  icon: JSX.Element;
+  path: string;
+  section?: boolean;
+  integration?: boolean;
+};
 
 export type GroupMenuProps = {
-  id: number
-  label: string
-  icon: JSX.Element
-  path: string
-}
+  id: number;
+  label: string;
+  icon: JSX.Element;
+  path: string;
+};
 
 export const LANDING_PAGE_MENU: MenuProps[] = [
   {
@@ -50,7 +50,7 @@ export const LANDING_PAGE_MENU: MenuProps[] = [
     icon: <Explore />,
     path: "/explore",
   },
-]
+];
 export const GROUP_PAGE_MENU: MenuProps[] = [
   {
     id: 0,
@@ -90,7 +90,7 @@ export const GROUP_PAGE_MENU: MenuProps[] = [
     icon: <Chat />,
     path: "/explore",
   },
-]
+];
 
 export const SIDEBAR_SETTINGS_MENU: MenuProps[] = [
   {
@@ -124,16 +124,16 @@ export const SIDEBAR_SETTINGS_MENU: MenuProps[] = [
     path: "integrations",
     integration: true,
   },
-]
+];
 
 type IntegrationsListItemProps = {
-  id: string
-  name: "stripe"
-  logo: string
-  description: string
-  title: string
-  modalDescription: string
-}
+  id: string;
+  name: "stripe";
+  logo: string;
+  description: string;
+  title: string;
+  modalDescription: string;
+};
 
 export const INTEGRATION_LIST_ITEMS: IntegrationsListItemProps[] = [
   {
@@ -146,4 +146,4 @@ export const INTEGRATION_LIST_ITEMS: IntegrationsListItemProps[] = [
     modalDescription:
       "The world’s most successful platforms and marketplaces including Shopify and DoorDash, use Stripe Connect.",
   },
-]
+];

@@ -1,4 +1,4 @@
-import { Node, mergeAttributes } from "@tiptap/core"
+import { Node, mergeAttributes } from "@tiptap/core";
 
 export const Image = Node.create({
   name: "image",
@@ -11,29 +11,29 @@ export const Image = Node.create({
       {
         tag: "img",
       },
-    ]
+    ];
   },
   addAttributes() {
     return {
       src: {
         default: null,
       },
-    }
+    };
   },
   renderHTML({ HTMLAttributes }) {
-    return ["img", mergeAttributes(HTMLAttributes)]
+    return ["img", mergeAttributes(HTMLAttributes)];
   },
   addNodeView() {
     return ({ editor, node }) => {
-      const div = document.createElement("div")
-      div.className = "w-full" + (editor.isEditable ? " cursor-pointer" : "")
-      const img = document.createElement("img")
-      img.className = "aspect-video w-full"
-      img.src = node.attrs.src
-      div.append(img)
+      const div = document.createElement("div");
+      div.className = "w-full" + (editor.isEditable ? " cursor-pointer" : "");
+      const img = document.createElement("img");
+      img.className = "aspect-video w-full";
+      img.src = node.attrs.src;
+      div.append(img);
       return {
         dom: div,
-      }
-    }
+      };
+    };
   },
-})
+});

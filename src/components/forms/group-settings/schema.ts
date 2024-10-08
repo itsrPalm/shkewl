@@ -1,7 +1,12 @@
-import { z } from "zod"
+import { z } from "zod";
 
-export const MAX_UPLOAD_SIZE = 1024 * 1024 * 2 // 2MB
-export const ACCEPTED_FILE_TYPES = ["image/png", "image/jpg", "image/jpeg"]
+export const MAX_UPLOAD_SIZE = 1024 * 1024 * 2; // 2MB
+export const ACCEPTED_FILE_TYPES = [
+  "image/png",
+  "image/jpg",
+  "image/jpeg",
+  "image/webp",
+];
 
 export const GroupSettingsSchema = z
   .object({
@@ -38,11 +43,11 @@ export const GroupSettingsSchema = z
           ACCEPTED_FILE_TYPES.includes(schema.icon?.[0].type!) &&
           schema.icon?.[0].size <= MAX_UPLOAD_SIZE
         ) {
-          return true
+          return true;
         }
       }
       if (!schema.icon?.length) {
-        return true
+        return true;
       }
     },
     {
@@ -58,11 +63,11 @@ export const GroupSettingsSchema = z
           ACCEPTED_FILE_TYPES.includes(schema.thumbnail?.[0].type!) &&
           schema.thumbnail?.[0].size <= MAX_UPLOAD_SIZE
         ) {
-          return true
+          return true;
         }
       }
       if (!schema.thumbnail?.length) {
-        return true
+        return true;
       }
     },
     {
@@ -70,4 +75,4 @@ export const GroupSettingsSchema = z
         "The image must be less then 2MB, and on PNG, JPEG & JPG files are accepted",
       path: ["thumbnail"],
     },
-  )
+  );

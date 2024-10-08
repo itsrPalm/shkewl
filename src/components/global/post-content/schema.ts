@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { z } from "zod";
 
 export const CreateChannelPost = z.object({
   title: z.string(),
@@ -14,4 +14,4 @@ export const CreateChannelPost = z.object({
     .string()
     .optional()
     .or(z.literal("").transform(() => undefined)),
-})
+});

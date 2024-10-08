@@ -5,18 +5,18 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { ArrowLeft, ArrowRight } from "lucide-react"
-import Image from "next/image"
+} from "@/components/ui/dialog";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 type SimpleModalProps = {
-  trigger: JSX.Element
-  children: React.ReactNode
-  title?: string
-  description?: string
-  type?: "Integration"
-  logo?: string
-}
+  trigger: JSX.Element;
+  children: React.ReactNode;
+  title?: string;
+  description?: string;
+  type?: "Integration";
+  logo?: string;
+};
 
 export const SimpleModal = ({
   trigger,
@@ -61,7 +61,7 @@ export const SimpleModal = ({
             {children}
           </DialogContent>
         </Dialog>
-      )
+      );
     default:
       return (
         <Dialog>
@@ -70,6 +70,6 @@ export const SimpleModal = ({
             {children}
           </DialogContent>
         </Dialog>
-      )
+      );
   }
-}
+};

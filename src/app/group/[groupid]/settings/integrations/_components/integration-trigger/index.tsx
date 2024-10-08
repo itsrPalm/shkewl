@@ -1,20 +1,20 @@
-import { SimpleModal } from "@/components/global/simple-modal"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { CheckCircle2Icon, CloudIcon } from "lucide-react"
-import { StripeConnect } from "../connect"
+import { SimpleModal } from "@/components/global/simple-modal";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { CheckCircle2Icon, CloudIcon } from "lucide-react";
+import { StripeConnect } from "../connect";
 
 type Props = {
-  name: "stripe"
-  logo: string
-  title: string
-  descrioption: string
-  groupid: string
+  name: "stripe";
+  logo: string;
+  title: string;
+  descrioption: string;
+  groupid: string;
   connections: {
-    [key in "stripe"]: boolean
-  }
-}
+    [key in "stripe"]: boolean;
+  };
+};
 
 const IntegrationTrigger = ({
   name,
@@ -62,7 +62,7 @@ const IntegrationTrigger = ({
         </div>
       </div>
     </SimpleModal>
-  )
-}
+  );
+};
 
-export default IntegrationTrigger
+export default IntegrationTrigger;

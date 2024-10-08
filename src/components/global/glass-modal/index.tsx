@@ -5,14 +5,14 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 
 type GlassModalProps = {
-  trigger: JSX.Element
-  children: React.ReactNode
-  title: string
-  description: string
-}
+  trigger: JSX.Element;
+  children: React.ReactNode;
+  title: string;
+  description: string;
+};
 
 export const GlassModal = ({
   trigger,
@@ -31,5 +31,5 @@ export const GlassModal = ({
         {children}
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};

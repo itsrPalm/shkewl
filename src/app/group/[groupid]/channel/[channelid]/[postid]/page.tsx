@@ -1,30 +1,30 @@
-import { onAuthenticatedUser } from "@/actions/auth"
-import { onGetPostComments, onGetPostInfo } from "@/actions/groups"
+import { onAuthenticatedUser } from "@/actions/auth";
+import { onGetPostComments, onGetPostInfo } from "@/actions/groups";
 
-import GroupSideWidget from "@/components/global/group-side-widget"
-import { PostCommentForm } from "@/components/global/post-comments"
+import GroupSideWidget from "@/components/global/group-side-widget";
+import { PostCommentForm } from "@/components/global/post-comments";
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
-} from "@tanstack/react-query"
-import { PostComments } from "./_components/comments"
-import { PostInfo } from "./_components/post-info"
+} from "@tanstack/react-query";
+import { PostComments } from "./_components/comments";
+import { PostInfo } from "./_components/post-info";
 
 const PostPage = async ({ params }: { params: { postid: string } }) => {
-  const client = new QueryClient()
+  const client = new QueryClient();
 
   await client.prefetchQuery({
     queryKey: ["unique-post"],
     queryFn: () => onGetPostInfo(params.postid),
-  })
+  });
 
   await client.prefetchQuery({
     queryKey: ["post-comments"],
     queryFn: () => onGetPostComments(params.postid),
-  })
+  });
 
-  const user = await onAuthenticatedUser()
+  const user = await onAuthenticatedUser();
 
   return (
     <HydrationBoundary state={dehydrate(client)}>
@@ -43,7 +43,7 @@ const PostPage = async ({ params }: { params: { postid: string } }) => {
         </div>
       </div>
     </HydrationBoundary>
-  )
-}
+  );
+};
 
-export default PostPage
+export default PostPage;

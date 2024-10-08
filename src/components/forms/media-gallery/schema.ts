@@ -1,7 +1,12 @@
-import { z } from "zod"
+import { z } from "zod";
 
-export const MAX_UPLOAD_SIZE = 1024 * 1024 * 2 // 2MB
-export const ACCEPTED_FILE_TYPES = ["image/png", "image/jpg", "image/jpeg"]
+export const MAX_UPLOAD_SIZE = 1024 * 1024 * 2; // 2MB
+export const ACCEPTED_FILE_TYPES = [
+  "image/png",
+  "image/jpg",
+  "image/jpeg",
+  "image/webp",
+];
 
 export const UpdateGallerySchema = z.object({
   videourl: z
@@ -20,22 +25,22 @@ export const UpdateGallerySchema = z.object({
     .refine(
       (images: FileList) => {
         if (!images.length) {
-          return true
+          return true;
         }
         if (images.length > 4) {
-          return false
+          return false;
         }
         const fileValidity = Array.from(images).find(
           (file) => file.size > MAX_UPLOAD_SIZE,
-        )
+        );
 
         if (fileValidity) {
-          return false
+          return false;
         }
 
-        return true
+        return true;
       },
       { message: "Looks like your images are to big or to many" },
     )
     .optional(),
-})
+});

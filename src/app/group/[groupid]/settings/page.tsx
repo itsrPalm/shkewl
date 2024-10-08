@@ -1,6 +1,6 @@
-import GroupSettingsForm from "@/components/forms/group-settings"
+import GroupSettingsForm from "@/components/forms/group-settings";
 
-type Props = {}
+type Props = {};
 
 const GroupSettingsPage = ({ params }: { params: { groupid: string } }) => {
   return (
@@ -14,7 +14,7 @@ const GroupSettingsPage = ({ params }: { params: { groupid: string } }) => {
       </div>
       <GroupSettingsForm groupId={params.groupid} />
     </div>
-  )
-}
+  );
+};
 
-export default GroupSettingsPage
+export default GroupSettingsPage;

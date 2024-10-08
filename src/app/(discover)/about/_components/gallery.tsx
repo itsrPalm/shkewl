@@ -1,17 +1,17 @@
-import MediaGalleryForm from "@/components/forms/media-gallery"
-import { GlassModal } from "@/components/global/glass-modal"
-import { Card, CardContent } from "@/components/ui/card"
-import { BadgePlus } from "@/icons"
-import { validateURLString } from "@/lib/utils"
+import MediaGalleryForm from "@/components/forms/media-gallery";
+import { GlassModal } from "@/components/global/glass-modal";
+import { Card, CardContent } from "@/components/ui/card";
+import { BadgePlus } from "@/icons";
+import { validateURLString } from "@/lib/utils";
 
 type Props = {
-  gallery: string[]
-  groupid: string
+  gallery: string[];
+  groupid: string;
 
-  onActive(media: { url: string | undefined; type: string }): void
-  userid: string
-  groupUserid: string
-}
+  onActive(media: { url: string | undefined; type: string }): void;
+  userid: string;
+  groupUserid: string;
+};
 
 const MediaGallery = ({
   gallery,
@@ -97,7 +97,7 @@ const MediaGallery = ({
         <></>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default MediaGallery
+export default MediaGallery;

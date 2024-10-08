@@ -21,7 +21,7 @@ const GroupLoading = () => {
         <span className="sr-only">Loading...</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GroupLoading
+export default GroupLoading;

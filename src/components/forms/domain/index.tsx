@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { FormGenerator } from "@/components/global/form-generator"
-import { Loader } from "@/components/global/loader"
-import { Button } from "@/components/ui/button"
-import { useCustomDomain } from "@/hooks/groups"
+import { FormGenerator } from "@/components/global/form-generator";
+import { Loader } from "@/components/global/loader";
+import { Button } from "@/components/ui/button";
+import { useCustomDomain } from "@/hooks/groups";
 
-import { cn } from "@/lib/utils"
-import { CircleAlert, CircleCheck } from "lucide-react"
+import { cn } from "@/lib/utils";
+import { CircleAlert, CircleCheck } from "lucide-react";
 
 type CustomDomainFormProps = {
-  groupid: string
-}
+  groupid: string;
+};
 
 export const CustomDomainForm = ({ groupid }: CustomDomainFormProps) => {
   const { register, errors, onAddDomain, isPending, data } =
-    useCustomDomain(groupid)
+    useCustomDomain(groupid);
 
   return (
     <div className="flex flex-col gap-y-5">
@@ -50,5 +50,5 @@ export const CustomDomainForm = ({ groupid }: CustomDomainFormProps) => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};

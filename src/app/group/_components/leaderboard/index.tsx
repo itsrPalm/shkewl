@@ -1,9 +1,9 @@
-import { Card } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 type LeaderBoardCardProps = {
-  light?: boolean
-}
+  light?: boolean;
+};
 
 export const LeaderBoardCard = ({ light }: LeaderBoardCardProps) => {
   return (
@@ -20,5 +20,5 @@ export const LeaderBoardCard = ({ light }: LeaderBoardCardProps) => {
         See who performed the best this month.
       </p>
     </Card>
-  )
-}
+  );
+};
