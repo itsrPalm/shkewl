@@ -6,6 +6,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@reach/visually-hidden";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -31,7 +32,10 @@ export const SimpleModal = ({
       return (
         <Dialog>
           <DialogTrigger asChild>{trigger}</DialogTrigger>
-          <DialogContent className="bg-themeBlack border-themeDarkGray">
+          <DialogContent
+            aria-describedby="dialog-description"
+            className="bg-themeBlack border-themeDarkGray"
+          >
             <DialogHeader>
               <DialogTitle>{title}</DialogTitle>
               <DialogDescription>{description}</DialogDescription>
@@ -64,7 +68,12 @@ export const SimpleModal = ({
       return (
         <Dialog>
           <DialogTrigger asChild>{trigger}</DialogTrigger>
-          <DialogContent className="bg-[#1C1C1E] !max-w-2xl border-themeGray">
+          <DialogContent
+            aria-describedby="dialog-description"
+            className="bg-[#1C1C1E] !max-w-2xl border-themeGray"
+          >
+            <VisuallyHidden></VisuallyHidden>
+            <DialogTitle />
             {children}
           </DialogContent>
         </Dialog>

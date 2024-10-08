@@ -255,18 +255,25 @@ export const useAllSubscriptions = (groupid: string) => {
 };
 
 export const useStripeConnect = (groupid: string) => {
+  console.log("THE GROUPID:[HOOKSPAYMENT]: ", groupid);
+
   const [onStripeAccountPending, setOnStripeAccountPending] =
     useState<boolean>(false);
 
   const onStripeConnect = async () => {
     try {
       setOnStripeAccountPending(true);
-      const account = await axios.get(`/api/stripe/connect?groupid=${groupid}`);
+      const account = await axios.get(
+        `http://localhost:3000/api/stripe/connect?groupid=${groupid}`,
+      );
+      console.log("THE STRIPE ACCOUNT[ONSTRIPECONNECT]: ", { ...account });
+
       if (account) {
+        console.dir(account);
         setOnStripeAccountPending(false);
-        if (account) {
-          window.location.href = account.data.url;
-        }
+        // if (account) {
+        window.location.href = account.data.url;
+        // }
       }
     } catch (error) {
       console.log(error);

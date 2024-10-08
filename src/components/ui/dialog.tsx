@@ -44,7 +44,7 @@
 //       {...props}
 //     >
 //       {children}
-//       <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+//       <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transitionOpacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
 //         <X className="h-4 w-4" />
 //         <span className="sr-only">Close</span>
 //       </DialogPrimitive.Close>
@@ -171,7 +171,7 @@ const DialogContent = React.forwardRef<
         Your description here for screen readers.
       </DialogDescription>
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transitionOpacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
         <X className="h-4 w-4" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
@@ -249,9 +249,9 @@ export {
 };
 
 // Null-check to avoid TypeError when manipulating DOM
-const element = document.getElementById("your-element-id");
-if (element) {
-  const childElement = document.createElement("div"); // This is now a concrete example
-  childElement.textContent = "This is a new child element";
-  element.appendChild(childElement);
-}
+// const element = document.getElementById("your-element-id");
+// if (element) {
+//   const childElement = document.createElement("div"); // This is now a concrete example
+//   childElement.textContent = "This is a new child element";
+//   element.appendChild(childElement);
+// }

@@ -54,6 +54,8 @@ const SideBarMenu = ({
   } = useChannelInfo();
 
   if (pathname.includes("settings")) {
+    console.log("PATHNAME[SIDEBARMENU]: ", pathname);
+
     return (
       <div className="flex flex-col">
         {SIDEBAR_SETTINGS_MENU.map((item) =>

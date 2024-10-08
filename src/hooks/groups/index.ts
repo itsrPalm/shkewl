@@ -31,7 +31,7 @@ import {
 import { AppDispatch } from "@/redux/store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { JSONContent } from "novel";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -576,14 +576,18 @@ export const useMediaGallery = (groupid: string) => {
 };
 
 export const useGroupChat = (groupid: string) => {
-  const { data } = useQuery({
+  const { data, error } = useQuery({
     queryKey: ["member-chats"],
     queryFn: () => onGetAllGroupMembers(groupid),
   });
 
-  const pathname = usePathname();
+  if (error) {
+    console.error("Error fetching member chats:", error);
+    return { data: [], error }; // Return an empty array and the error
+  }
 
-  return { data, pathname };
+  // Ensure data is not undefined
+  return { data: data || [] }; // Return an empty array if data is undefined
 };
 
 export const useChatWindow = (recieverid: string) => {

@@ -24,6 +24,8 @@ export function getUrlFromString(str: string) {
   if (isValidUrl(str)) return str;
   try {
     if (str.includes(".") && !str.includes(" ")) {
+      //   return new URL(`http${ENVIRONMENT}://${str}`).toString();
+
       return new URL(`https://${str}`).toString();
     }
   } catch (e) {
@@ -69,8 +71,18 @@ export const LinkSelector = ({ open, onOpenChange }: LinkSelectorProps) => {
             const target = e.currentTarget as HTMLFormElement;
             e.preventDefault();
             const input = target[0] as HTMLInputElement;
-            const url = getUrlFromString(input.value);
-            url && editor.chain().focus().setLink({ href: url }).run();
+            // const url = getUrlFromString(input.value);
+            // url && editor.chain().focus().setLink({ href: url }).run();
+            if (input) {
+              const url = getUrlFromString(input.value);
+              if (url) {
+                // Ensure setLink is defined to accept an object with href
+                editor.chain().focus().setLink({ href: url }).run(); // This should work if setLink is defined correctly
+              } else {
+                // Handle invalid URL case
+                console.error("Invalid URL");
+              }
+            }
           }}
           className="flex  p-1 "
         >

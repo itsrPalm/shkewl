@@ -19,7 +19,14 @@ export const onAuthenticatedUser = async () => {
         lastname: true,
       },
     });
-    console.log("CLERK[ACTIONSAUTH]: ", clerk, "\nUSER[ACTIONSAUTH]: ", user);
+    console.log(
+      "CLERK[ACTIONSAUTH]: ",
+      clerk,
+      "\nUSER[ACTIONSAUTH]: ",
+      user,
+      "\nUSERAGAIN...",
+      { ...user },
+    );
     if (user)
       return {
         status: 200,
