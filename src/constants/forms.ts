@@ -54,3 +54,6 @@ export const SIGN_IN_FORM: AuthFormProps[] = [
     type: "password",
   },
 ];
+
+export const ENVIRONMENT: string =
+  process.env.NODE_ENV == "production" ? "s" : "";

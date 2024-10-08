@@ -6,6 +6,7 @@ import BlockTextEditor from "@/components/global/rich-text-editor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { ENVIRONMENT } from "@/constants/forms";
 import { useGroupSettings } from "@/hooks/groups";
 
 type Props = {
@@ -66,7 +67,7 @@ const GroupSettingsForm = ({ groupId }: Props) => {
             src={
               previewIcon ||
               (data?.group?.icon &&
-                `https://ucarecdn.com/${data?.group?.icon}/`) ||
+                `http${ENVIRONMENT}://${process.env.UCARE_CDN}/${data?.group?.icon}/`) ||
               "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg"
             }
             alt="icon"

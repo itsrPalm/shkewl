@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { ENVIRONMENT } from "@/constants/forms";
 import { truncateString } from "@/lib/utils";
 import Link from "next/link";
 
@@ -28,7 +29,10 @@ const GroupCard = ({
     <Link href={`/about/${id}`}>
       <Card className="bg-themeBlack border-themeGray rounded-xl overflow-hidden">
         <img
-          src={preview || `https://ucarecdn.com/${thumbnail}/`}
+          src={
+            preview ||
+            `http${ENVIRONMENT}://${process.env.UCARE_CDN}/${thumbnail}/`
+          }
           alt="thumbnail"
           className="w-full opacity-70 h-56"
         />

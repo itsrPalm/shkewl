@@ -4,6 +4,7 @@ import { Loader } from "@/components/global/loader";
 import BlockTextEditor from "@/components/global/rich-text-editor";
 import { NoResult } from "@/components/global/search/no-results";
 import { Button } from "@/components/ui/button";
+import { ENVIRONMENT } from "@/constants/forms";
 import { useGroupAbout, useGroupInfo } from "@/hooks/groups";
 import MediaGallery from "./gallery";
 
@@ -51,7 +52,7 @@ const AboutGroup = ({ groupid, userid }: Props) => {
           <div className="img--overlay absolute h-2/6 bottom-0 w-full z-50" />
           {activeMedia?.type === "IMAGE" ? (
             <img
-              src={`https://ucarecdn.com/${activeMedia.url}/`}
+              src={`http${ENVIRONMENT}://${process.env.UCARE_CDN}/${activeMedia.url}/`}
               alt="group-img"
               className="w-full aspect-video z-20 rounded-t-xl"
             />

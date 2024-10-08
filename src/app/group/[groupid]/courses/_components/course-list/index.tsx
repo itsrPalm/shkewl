@@ -1,5 +1,6 @@
 "use client";
 import { Card } from "@/components/ui/card";
+import { ENVIRONMENT } from "@/constants/forms";
 import { useCourses } from "@/hooks/courses";
 import { truncateString } from "@/lib/utils";
 import Link from "next/link";
@@ -19,7 +20,7 @@ const CourseList = ({ groupid }: Props) => {
     <Link href={`/group/${groupid}/courses/${course.id}`} key={course.id}>
       <Card className="bg-transparent border-themeGray h-full rounded-xl overflow-hidden">
         <img
-          src={`https://ucarecdn.com/${course.thumbnail}/`}
+          src={`http${ENVIRONMENT}://${process.env.UCARE_CDN}/${course.thumbnail}/`}
           alt="cover"
           className="h-4/6 w-full opacity-60"
         />
