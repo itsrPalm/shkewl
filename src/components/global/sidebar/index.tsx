@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ENVIRONMENT } from "@/constants/forms";
 import { useGroupChatOnline } from "@/hooks/groups";
 import { useSideBar } from "@/hooks/navigation";
 import { CarotSort } from "@/icons";
@@ -78,7 +77,7 @@ const SideBar = ({ groupid, userid, mobile }: Props) => {
             <div className="w-full flex items-center justify-between text-themeTextGray md:border-[1px] border-themeGray p-3 rounded-xl">
               <div className="flex gap-x-3 items-center">
                 <img
-                  src={`http${ENVIRONMENT}://${process.env.UCARE_CDN}/${groupInfo.group?.icon as string}/`}
+                  src={`https://ucarecdn.com/${groupInfo.group?.icon as string}/`}
                   alt="icon"
                   className="w-10 rounded-lg"
                 />

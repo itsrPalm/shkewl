@@ -2,7 +2,6 @@
 import { JoinButton } from "@/app/(discover)/about/_components/join-button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ENVIRONMENT } from "@/constants/forms";
 import { useGroupInfo } from "@/hooks/groups";
 import { cn, truncateString } from "@/lib/utils";
 
@@ -23,7 +22,7 @@ const GroupSideWidget = ({ groupid, light, userid }: Props) => {
       )}
     >
       <img
-        src={`http${ENVIRONMENT}://${process.env.UCARE_CDN}/${group.thumbnail}/`}
+        src={`https://ucarecdn.com/${group.thumbnail}/`}
         alt="thumbnail"
         className="w-full aspect-video"
       />

@@ -1,4 +1,3 @@
-import { ENVIRONMENT } from "@/constants/forms";
 import { upload } from "@/lib/uploadcare";
 import {
   CheckSquare,
@@ -152,7 +151,7 @@ export const suggestionItems = createSuggestionItems([
           const file = input.files[0];
           const uploaded = await upload.uploadFile(file);
           //This should return a src of the uploaded image
-          const imgsrc = `http${ENVIRONMENT}://${process.env.UCARE_CDN}/${uploaded.uuid}/`;
+          const imgsrc = `https://ucarecdn.com/${uploaded.uuid}/`;
           if (imgsrc) {
             editor.commands.insertContent([
               {

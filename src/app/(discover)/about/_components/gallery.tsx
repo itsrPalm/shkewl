@@ -1,7 +1,6 @@
 import MediaGalleryForm from "@/components/forms/media-gallery";
 import { GlassModal } from "@/components/global/glass-modal";
 import { Card, CardContent } from "@/components/ui/card";
-import { ENVIRONMENT } from "@/constants/forms";
 import { BadgePlus } from "@/icons";
 import { validateURLString } from "@/lib/utils";
 
@@ -34,7 +33,7 @@ const MediaGallery = ({
                 })
               }
               key={key}
-              src={`http${ENVIRONMENT}://${process.env.UCARE_CDN}/${gal}/`}
+              src={`https://ucarecdn.com/${gal}/`}
               alt="gallery-img"
               className="aspect-video w-36 rounded-xl cursor-pointer opacity-70"
             />
