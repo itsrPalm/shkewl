@@ -56,4 +56,4 @@ export const SIGN_IN_FORM: AuthFormProps[] = [
 ];
 
 export const ENVIRONMENT: string =
-  process.env.NODE_ENV == "production" ? "s" : "";
+  process.env.NODE_ENV == "production" ? "s" : "s";
