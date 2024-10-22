@@ -30,7 +30,7 @@ export const GroupSubscriptionForm = ({
           </span>
         }
         title="Create a subscription"
-        description="Create a subscription plan for your shkewl group"
+        description="Create a subscription plan for your advanced-practice group"
       >
         <form
           onSubmit={onCreateNewSubscription}

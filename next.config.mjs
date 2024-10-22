@@ -9,7 +9,7 @@ const nextConfig = {
             },
             {
                 protocol: "https",
-                hostname: "shkewl.vercel.app",
+                hostname: "advanced-practice.vercel.app",
             },
             {
                 protocol: "https",

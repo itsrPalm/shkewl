@@ -21,14 +21,14 @@ export const Navbar = async () => {
         {user.status === 200 ? (
           <GroupDropDown members={groups.members} groups={groups} />
         ) : (
-          <p>Shkewl.</p>
+          <p>AdvancedPractice.</p>
         )}
       </div>
       <GlassSheet
         trigger={
           <span className="lg:hidden flex items-center gap-2 py-2">
             <MenuIcon className="cursor-pointer" />
-            <p>Shkewl.</p>
+            <p>AdvancedPractice.</p>
           </span>
         }
       >

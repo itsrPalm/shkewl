@@ -229,3 +229,33 @@ html {
   height: 0;
   pointer-events: none;
 }
+
+/* .tippy-box {
+  z-index: 9999 !important;
+  pointer-events: auto !important; 
+}
+
+.react-renderer {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; 
+} */
+
+/* .tippy-content {
+  z-index: 9999 !important;
+} */
+
+/* .suggestion {
+  position: absolute;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input[disabled] {
+    background-color: #fff;
+    color: #000;
+    cursor: default;
+  }
+} */

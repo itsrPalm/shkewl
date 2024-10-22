@@ -12,7 +12,7 @@ import {
   JSONContent,
 } from "novel";
 import { CharacterCount, handleCommandNavigation } from "novel/extensions";
-import { type Dispatch, type SetStateAction, useState } from "react";
+import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 import { FieldErrors } from "react-hook-form";
 import { HtmlParser } from "../html-parser";
 import { ColorSelector } from "./color-selector";
@@ -62,19 +62,27 @@ const BlockTextEditor = ({
     textContent?.length || undefined,
   );
 
+  useEffect(() => {
+    const inputElement = document.querySelector("suggestion");
+    if (inputElement) {
+      inputElement.addEventListener("keydown", function (e) {
+        e.preventDefault();
+      });
+    }
+  }, []);
+
   return (
-    <div className="z-50">
-      {" "}
+    <div className="z-40">
       {htmlContent && !onEdit && inline ? (
         <HtmlParser html={htmlContent} />
       ) : (
         <EditorRoot>
           <EditorContent
-            className={cn(
+            className={`z-40 ${cn(
               inline
                 ? onEdit && "mb-5"
                 : "border-[1px] rounded-xl px-10 py-5 text-base border-themeGray bg-themeBlack w-full",
-            )}
+            )}`}
             initialContent={content}
             editorProps={{
               editable: () => !disabled as boolean,
@@ -82,7 +90,7 @@ const BlockTextEditor = ({
                 keydown: (_view, event) => handleCommandNavigation(event),
               },
               attributes: {
-                class: `prose prose-lg dark:prose-invert focus:outline-none max-w-full [&_h1]:text-4xl [&_h2]:text-3xl [&_h3]:text-2xl text-themeTextGray`,
+                class: `prose prose-lg dark:prose-invert focus:outline-none max-w-full [&_h1]:text-4xl [&_h2]:text-3xl [&_h3]:text-2xl text-themeTextGray z-40`,
               },
             }}
             extensions={[
@@ -117,22 +125,22 @@ const BlockTextEditor = ({
             }}
           >
             <EditorCommand className="z-50 h-auto max-h-[330px]  w-72 overflow-y-auto rounded-md border border-muted bg-background px-1 py-2 shadow-md transition-all">
-              <EditorCommandEmpty className="px-2 text-muted-foreground">
+              <EditorCommandEmpty className="px-2 text-muted-foreground z-50">
                 No results
               </EditorCommandEmpty>
               {suggestionItems.map((item: any) => (
                 <EditorCommandItem
                   value={item.title}
                   onCommand={(val) => item.command(val)}
-                  className={`flex w-full items-center space-x-2 rounded-md px-2 py-1 text-left text-sm hover:bg-accent aria-selected:bg-accent `}
+                  className={`flex w-full items-center space-x-2 rounded-md px-2 py-1 text-left text-sm hover:bg-accent aria-selected:bg-accent z-50 cursor-pointer`}
                   key={item.title}
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-md border border-muted bg-background">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-md border border-muted bg-background z-50">
                     {item.icon}
                   </div>
                   <div>
-                    <p className="font-medium">{item.title}</p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="font-medium z-50">{item.title}</p>
+                    <p className="text-xs text-muted-foreground z-50">
                       {item.description}
                     </p>
                   </div>
@@ -142,7 +150,7 @@ const BlockTextEditor = ({
                 tippyOptions={{
                   placement: "top",
                 }}
-                className="flex w-fit max-w-[90vw] overflow-hidden rounded border border-muted bg-themeBlack text-themeTextGray shadow-xl"
+                className="flex w-fit max-w-[90vw] overflow-hidden rounded border border-muted bg-themeBlack text-themeTextGray shadow-xl z-50"
               >
                 <NodeSelector open={openNode} onOpenChange={setOpenNode} />
                 <LinkSelector open={openLink} onOpenChange={setOpenLink} />
@@ -153,14 +161,14 @@ const BlockTextEditor = ({
           </EditorContent>
           {inline ? (
             onEdit && (
-              <div className="flex justify-between py-2">
+              <div className="flex justify-between py-2 z-40">
                 <p
-                  className={cn(
+                  className={`z-40 ${cn(
                     "text-xs",
                     characters &&
                       (characters < min || characters > max) &&
                       "text-red-500",
-                  )}
+                  )}`}
                 >
                   {characters || 0} / {max}
                 </p>
@@ -168,7 +176,7 @@ const BlockTextEditor = ({
                   errors={errors}
                   name={name}
                   render={({ message }) => (
-                    <p className="text-red-400 mt-2">
+                    <p className="text-red-400 mt-2 z-40">
                       {message === "Required" ? "" : message}
                     </p>
                   )}
@@ -176,14 +184,14 @@ const BlockTextEditor = ({
               </div>
             )
           ) : (
-            <div className="flex justify-between py-2">
+            <div className="flex justify-between py-2 z-40">
               <p
-                className={cn(
+                className={`z-50 ${cn(
                   "text-xs",
                   characters &&
                     (characters < min || characters > max) &&
                     "text-red-500",
-                )}
+                )}`}
               >
                 {characters || 0} / {max}
               </p>
@@ -191,7 +199,7 @@ const BlockTextEditor = ({
                 errors={errors}
                 name={name}
                 render={({ message }) => (
-                  <p className="text-red-400 mt-2">
+                  <p className="text-red-400 mt-2 z-40">
                     {message === "Required" ? "" : message}
                   </p>
                 )}

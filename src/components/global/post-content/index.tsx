@@ -24,10 +24,10 @@ export const PostContent = ({ channelid }: PostContentProps) => {
   } = useCreateChannelPost(channelid);
 
   return (
-    <form className="flex flex-col gap-y-5 w-full" onSubmit={onCreatePost}>
+    <form className="flex flex-col gap-y-5 w-full z-40" onSubmit={onCreatePost}>
       <Input
         placeholder="Title"
-        className="bg-transparent outline-none border-none text-2xl p-0"
+        className="bg-transparent outline-none border-none text-2xl p-0 z-40"
         {...register("title")}
       />
       <BlockTextEditor
@@ -44,7 +44,7 @@ export const PostContent = ({ channelid }: PostContentProps) => {
         htmlContent={onHtmlDescription}
         setHtmlContent={setOnHtmlDescription}
       />
-      <Button className="self-end rounded-2xl bg-themeTextGray flex gap-x-2">
+      <Button className="self-end rounded-2xl bg-themeTextGray flex gap-x-2 z-40">
         <Upload />
         Create
       </Button>

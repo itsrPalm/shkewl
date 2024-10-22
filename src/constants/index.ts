@@ -11,7 +11,7 @@ import {
 } from "./placeholder";
 import { GROUP_LIST, GroupListProps } from "./slider";
 
-type ShkewlConstantsProps = {
+type AdvancedPracticeConstantsProps = {
   landingPageMenu: MenuProps[];
   signUpForm: AuthFormProps[];
   signInForm: AuthFormProps[];
@@ -20,7 +20,7 @@ type ShkewlConstantsProps = {
   groupPageMenu: GroupMenuProps[];
 };
 
-export const SHKEWL_CONSTANTS: ShkewlConstantsProps = {
+export const SHKEWL_CONSTANTS: AdvancedPracticeConstantsProps = {
   landingPageMenu: LANDING_PAGE_MENU,
   signUpForm: SIGN_UP_FORM,
   signInForm: SIGN_IN_FORM,

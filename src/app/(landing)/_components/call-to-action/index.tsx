@@ -15,7 +15,7 @@ const CallToAction = (props: Props) => {
         Bringing Communities <br className="md:hidden" /> Together
       </GradientText>
       <p className="text-sm md:text-center text-left text-muted-foreground">
-        Shkewl is a vibrant online community platform that empowers
+        AdvancedPractice is a vibrant online community platform that empowers
         <br className="md:hidden" />
         people to connect, <br className="hidden md:block" /> collaborate, and
         cultivate meaningful

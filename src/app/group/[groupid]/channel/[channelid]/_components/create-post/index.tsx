@@ -17,14 +17,14 @@ const CreateNewPost = ({ channelid, userImage, username }: Props) => {
     <>
       <SimpleModal
         trigger={
-          <span>
-            <Card className="border-themeGray cursor-pointer first-letter:rounded-2xl overflow-hidden">
-              <CardContent className="p-3 bg-[#1A1A1D] flex gap-x-6 items-center ">
-                <Avatar className="cursor-pointer">
-                  <AvatarImage src={userImage} alt="user" />
+          <span className="z-40">
+            <Card className="border-themeGray cursor-pointer first-letter:rounded-2xl overflow-hidden z-40">
+              <CardContent className="p-3 bg-[#1A1A1D] flex gap-x-6 items-center z-40">
+                <Avatar className="cursor-pointer z-40">
+                  <AvatarImage src={userImage} alt="user" className="z-40" />
                   <AvatarFallback>U</AvatarFallback>
                 </Avatar>
-                <CardDescription className="text-themeTextGray">
+                <CardDescription className="text-themeTextGray z-40">
                   Type / to add elements to your post...
                 </CardDescription>
               </CardContent>
@@ -32,16 +32,18 @@ const CreateNewPost = ({ channelid, userImage, username }: Props) => {
           </span>
         }
       >
-        <div className="flex gap-x-3">
-          <Avatar className="cursor-pointer">
+        <div className="flex gap-x-3 z-40">
+          <Avatar className="cursor-pointer z-40">
             <AvatarImage src={userImage} alt="user" />
             <AvatarFallback>U</AvatarFallback>
           </Avatar>
-          <div className="flex flex-col">
-            <p className="text-themeTextGray text-sm capitalize">{username}</p>
-            <p className="text-sm captialize text-themeTextGray">
+          <div className="flex flex-col z-40">
+            <p className="text-themeTextGray text-sm capitalize z-40">
+              {username}
+            </p>
+            <p className="text-sm captialize text-themeTextGray z-40">
               Posting in{" "}
-              <span className="font-bold capitalize text-themeTextWhite">
+              <span className="font-bold capitalize text-themeTextWhite z-40">
                 {name}
               </span>
             </p>
