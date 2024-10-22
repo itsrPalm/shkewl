@@ -1,7 +1,7 @@
 import BackdropGradient from "@/components/global/backdrop-gradient";
 import GlassCard from "@/components/global/glass-card";
 import GradientText from "@/components/global/gradient-text";
-import { SHKEWL_CONSTANTS } from "@/constants";
+import { ADVANCED_PRACTICE_CONSTANTS } from "@/constants";
 
 type Props = {
   children: React.ReactNode;
@@ -23,12 +23,14 @@ const CreateGroupLayout = ({ children }: Props) => {
             Unlimited everything. No hidden fees.
           </p>
           <div className="flex flex-col gap-3 mt-16 pl-5">
-            {SHKEWL_CONSTANTS.createGroupPlaceholder.map((placeholder) => (
-              <div className="flex gap-3" key={placeholder.id}>
-                {placeholder.icon}
-                <p className="text-themeTextGray">{placeholder.label}</p>
-              </div>
-            ))}
+            {ADVANCED_PRACTICE_CONSTANTS.createGroupPlaceholder.map(
+              (placeholder) => (
+                <div className="flex gap-3" key={placeholder.id}>
+                  {placeholder.icon}
+                  <p className="text-themeTextGray">{placeholder.label}</p>
+                </div>
+              ),
+            )}
           </div>
         </BackdropGradient>
       </div>

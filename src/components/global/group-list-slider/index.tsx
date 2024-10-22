@@ -1,7 +1,7 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { SHKEWL_CONSTANTS } from "@/constants";
+import { ADVANCED_PRACTICE_CONSTANTS } from "@/constants";
 import Link from "next/link";
 import { UseFormRegister } from "react-hook-form";
 import "swiper/css/bundle";
@@ -35,7 +35,7 @@ export const GroupListSlider = ({
       overlay={overlay}
       {...rest}
     >
-      {SHKEWL_CONSTANTS.groupList.map((item, i) => (
+      {ADVANCED_PRACTICE_CONSTANTS.groupList.map((item, i) => (
         <SwiperSlide key={item.id} className="content-width-slide ">
           {!register ? (
             route ? (

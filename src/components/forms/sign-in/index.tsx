@@ -3,7 +3,7 @@
 import { FormGenerator } from "@/components/global/form-generator";
 import { Loader } from "@/components/global/loader";
 import { Button } from "@/components/ui/button";
-import { SHKEWL_CONSTANTS } from "@/constants";
+import { ADVANCED_PRACTICE_CONSTANTS } from "@/constants";
 import { useAuthSignIn } from "@/hooks/authentication";
 
 type Props = {};
@@ -13,7 +13,7 @@ const SignInForm = (props: Props) => {
 
   return (
     <form className="flex flex-col gap-3 mt-10" onSubmit={onAuthenticateUser}>
-      {SHKEWL_CONSTANTS.signInForm.map((field) => (
+      {ADVANCED_PRACTICE_CONSTANTS.signInForm.map((field) => (
         <FormGenerator
           {...field}
           key={field.id}
@@ -35,7 +35,7 @@ export default SignInForm;
 // import { FormGenerator } from "@/components/global/form-generator"
 // import { Loader } from "@/components/global/loader"
 // import { Button } from "@/components/ui/button"
-// import { SHKEWL_CONSTANTS } from "@/constants"
+// import { ADVANCED_PRACTICE_CONSTANTS } from "@/constants"
 // import { useAuthSignIn } from "@/hooks/authentication"
 
 // const SignInForm = () => {
@@ -43,7 +43,7 @@ export default SignInForm;
 
 //   return (
 //     <form className="flex flex-col gap-3 mt-10" onSubmit={onAuthenticateUser}>
-//       {SHKEWL_CONSTANTS.signInForm.map((field, index) => (
+//       {ADVANCED_PRACTICE_CONSTANTS.signInForm.map((field, index) => (
 //         <FormGenerator
 //           {...field}
 //           key={`form-field-${index}`} // Unique key for each form field

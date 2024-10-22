@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { SHKEWL_CONSTANTS } from "@/constants";
+import { ADVANCED_PRACTICE_CONSTANTS } from "@/constants";
 import { useNavigation } from "@/hooks/navigation";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -17,7 +17,7 @@ const Menu = ({ orientation }: MenuProps) => {
       return (
         <Card className="bg-themeGray border-themeGray bg-clip-padding backdrop--blur__safari backdrop-filter backdrop-blur-2xl bgOpacity-60 p-1 lg:flex  md:rounded-xl flex items-center justify-center w-fit">
           <CardContent className="p-0 flex gap-2">
-            {SHKEWL_CONSTANTS.groupPageMenu.map((menuItem) => (
+            {ADVANCED_PRACTICE_CONSTANTS.groupPageMenu.map((menuItem) => (
               <Link
                 href={menuItem.path}
                 onClick={() => onSetSection(menuItem.path)}
@@ -40,7 +40,7 @@ const Menu = ({ orientation }: MenuProps) => {
     case "mobile":
       return (
         <div className="flex flex-col mt-10">
-          {SHKEWL_CONSTANTS.groupPageMenu.map((menuItem) => (
+          {ADVANCED_PRACTICE_CONSTANTS.groupPageMenu.map((menuItem) => (
             <Link
               href={menuItem.path}
               onClick={() => onSetSection(menuItem.path)}

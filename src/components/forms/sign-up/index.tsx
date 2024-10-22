@@ -2,7 +2,7 @@
 import { FormGenerator } from "@/components/global/form-generator";
 import { Loader } from "@/components/global/loader";
 import { Button } from "@/components/ui/button";
-import { SHKEWL_CONSTANTS } from "@/constants";
+import { ADVANCED_PRACTICE_CONSTANTS } from "@/constants";
 import { useAuthSignUp } from "@/hooks/authentication";
 import dynamic from "next/dynamic";
 
@@ -39,7 +39,7 @@ const SignUpForm = (props: Props) => {
           <OtpInput otp={code} setOtp={setCode} />
         </div>
       ) : (
-        SHKEWL_CONSTANTS.signUpForm.map((field) => (
+        ADVANCED_PRACTICE_CONSTANTS.signUpForm.map((field) => (
           <FormGenerator
             {...field}
             key={field.id}
